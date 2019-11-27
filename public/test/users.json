@@ -1,0 +1,21 @@
+{
+    "user": [{
+        "id": 1,
+        "username": "David",
+        "email": "david@gmail.com",
+        "isActive": true,
+        "dp": "http://www.serebii.net/pokemongo/pokemon/001.png",
+        "badges_users": [1, 2],
+        "quizzes_users": [1]
+
+    }, {
+        "id": 2,
+        "username": "Eugene",
+        "email": "eugene@gmail.com",
+        "isActive": true,
+        "dp": "http://www.serebii.net/pokemongo/pokemon/002.png",
+        "badges_users": [2],
+        "quizzes_users": [2]
+
+    }]
+}
