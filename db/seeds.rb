@@ -49,15 +49,72 @@ user4.save
   ])
 
   Question.create!([
-    {quiz_id: 1, body: "In layman's terms, The Force is...", answer: "the energy field that connects all living things in the galaxy"},
-    {quiz_id: 1, body: "The Sith were formed during....", answer: "Hundred Year Darkness"},
-    {quiz_id: 1, body: "Which Akira Kurosawa film inspired George Lucas?", answer: "The Hidden Fortress"},
-    {quiz_id: 1, body: "Who is one of the first to die because of Han Solo in Episode IV?", answer: "Greedo the Rodian"},
-    {quiz_id: 1, body: "How exactly did Princess Leia end up in that bikini?", answer: "Princess Leia infiltrates Jabba's palace."},
-    {quiz_id: 1, body: "Which original character name was NOT in the first draft?", answer: "Princess Dharma"},
-    {quiz_id: 1, body: "What exactly is a Jedi mind trick?", answer: "The ability to change a person's will or perception using the Force"},
-    {quiz_id: 1, body: "What do Luke and Han fight at the beginning of Episode VI to avoid death?", answer: "Sarlacc"},
-    {quiz_id: 1, body: "What type of droid is R2D2?", answer: "Astromech"},
-    {quiz_id: 1, body: "How do the Rebels defeat the Empire?", answer: "The strike team destroys the shield generator."}
+    {quiz_id: 1, body: "In layman's terms, The Force is..."},
+    {quiz_id: 1, body: "The Sith were formed during...."},
+    {quiz_id: 1, body: "Which Akira Kurosawa film inspired George Lucas?"},
+    {quiz_id: 1, body: "Who is one of the first to die because of Han Solo in Episode IV?"},
+    {quiz_id: 1, body: "How exactly did Princess Leia end up in that bikini?"},
+    
+    {quiz_id: 1, body: "Which original character name was NOT in the first draft?"},
+    {quiz_id: 1, body: "What exactly is a Jedi mind trick?"},
+    {quiz_id: 1, body: "What do Luke and Han fight at the beginning of Episode VI to avoid death?"},
+    {quiz_id: 1, body: "What type of droid is R2D2?"},
+    {quiz_id: 1, body: "How do the Rebels defeat the Empire?"}
   ])
+
+
+  Option.create!([
+  {question_id: 1, choice: "the energy field that connects all living things in the galaxy", isAnswer: true},
+  {question_id: 1, choice: "the inner energy that allows the Jedi to harness their power"},
+  {question_id: 1, choice: "a Life Force that renders one's spirit immortal"},
+  {question_id: 1, choice: "the chi used by the Jedi to defeat external forces"},
+
+  {question_id: 2, choice: "Hundred Year Darkness", isAnswer: true},
+  {question_id: 2, choice: "Dark age"},
+  {question_id: 2, choice: "The Clone Wars"},
+  {question_id: 2, choice: "Imperial Era"},
+
+  {question_id: 3, choice: "The Hidden Fortress", isAnswer: true},
+  {question_id: 3, choice: "No Regrets for Our Youth"},
+  {question_id: 3, choice: "Ikiru"},
+  {question_id: 3, choice: "Dersu Uzala"},
+
+  {question_id: 4, choice: "Greedo the Rodian", isAnswer: true},
+  {question_id: 4, choice: "Jas Emari, bounty hunter"},
+  {question_id: 4, choice: "4-LOM, hunter droid"},
+  {question_id: 4, choice: "Bossk"},
+
+  {question_id: 5, choice: "Princess Leia infiltrates Jabba's palace.", isAnswer: true},
+  {question_id: 5, choice: "Princess Leia doesn't communicate her entire plan to Chewbacca."},
+  {question_id: 5, choice: "Luke arrived too late to help."},
+  {question_id: 5, choice: "Lando Calrissian betrays Princess Leia."},
+
+  {question_id: 6, choice: "Princess Dharma", isAnswer: true},
+  {question_id: 6, choice: "Annikin Starkiller"},
+  {question_id: 6, choice: "Mace Windy"},
+  {question_id: 6, choice: "CJ Thorpe"},
+  
+  {question_id: 7, choice: "The ability to change a person's will or perception using the Force", isAnswer: true},
+  {question_id: 7, choice: "Electroencephalography that lets Jedi read other people's beta waves"},
+  {question_id: 7, choice: "The ability to implant memories into others"},
+  {question_id: 7, choice: "The ability to read someone else's mind through sense of the Force"},
+
+  {question_id: 8, choice: "Sarlacc", isAnswer: true},
+  {question_id: 8, choice: "Rancor"},
+  {question_id: 8, choice: "Karbin"},
+  {question_id: 8, choice: "Morley"},
+
+  {question_id: 9, choice: "Astromech", isAnswer: true},
+  {question_id: 9, choice: "Maintenance"},
+  {question_id: 9, choice: "Protocol"},
+  {question_id: 9, choice: "Gladiator"},
+
+  {question_id: 10, choice: "The strike team destroys the shield generator.", isAnswer: true},
+  {question_id: 10, choice: "Luke convinces his father to rejoin the Jedi."},
+  {question_id: 10, choice: "Anakin Skywalker comes through and abdicates his position."},
+  {question_id: 10, choice: "Princess Leia and Han Solo steal a TIE fighter."},
+  ])
+
+  
+
 
