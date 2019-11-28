@@ -29,3 +29,12 @@ user4.save
       Quiz.create({user_id: user.id, title: FFaker::Lorem.sentence, description: FFaker::Lorem.sentences, img_url: "/test/bananakiller.png"})
     end
   end
+
+  BadgesUser.create!([
+    {user_id: 1, badge_id: 1},
+    {user_id: 1, badge_id: 2},
+    {user_id: 2, badge_id: 1},
+    {user_id: 2, badge_id: 2},
+    {user_id: 3, badge_id: 1},
+    {user_id: 3, badge_id: 2}
+  ])
