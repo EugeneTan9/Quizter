@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quiz: one
+  title: MyString
+  criteria: 1
+  img_url: MyString
+  user: one
+
+two:
+  quiz: two
+  title: MyString
+  criteria: 1
+  img_url: MyString
+  user: two

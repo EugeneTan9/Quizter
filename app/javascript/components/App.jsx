@@ -71,7 +71,6 @@ class App extends React.Component{
 
         return(
             <div>
-            Working from App
             <Form getQn ={this.getQn}/>
             {this.state.question}
             {choices}

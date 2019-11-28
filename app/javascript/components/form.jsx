@@ -11,7 +11,6 @@ class Form extends React.Component{
     render(){
         return(
             <div>
-            working from formmmmmmmmm
             <button onClick={()=>{this.props.getQn()}}>Clickkkkkkk</button>
             </div>
             )

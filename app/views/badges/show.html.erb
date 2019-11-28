@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Quiz:</strong>
+  <%= @badge.quiz_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @badge.title %>
+</p>
+
+<p>
+  <strong>Criteria:</strong>
+  <%= @badge.criteria %>
+</p>
+
+<p>
+  <strong>Img url:</strong>
+  <%= @badge.img_url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @badge.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_badge_path(@badge) %> |
+<%= link_to 'Back', badges_path %>
