@@ -43,11 +43,12 @@ class App extends React.Component{
     constructor(){
         super()
         this.state ={
-            question:"",
+            question:[],
             choices:[]
         }
 
         this.getQn = this.getQn.bind(this);
+        this.test = this.test.bind(this);
     }
 
     getQn(){
@@ -60,7 +61,22 @@ class App extends React.Component{
     }
 
 
+    test(){
+        const url = '/quizzes.json';
+
+        axios.get(url)
+            .then((response) => {
+                const data = response.data
+                console.log(data)
+                this.setState({question: data})
+            }).catch((error) =>{
+                console.log(error);
+            })
+    }
+
+
     render(){
+
 
         const choices = this.state.choices.map((choices, index)=>{
             return(<div>
@@ -71,7 +87,8 @@ class App extends React.Component{
 
         return(
             <div>
-            <Form getQn ={this.getQn}/>
+
+            <Form getQn ={this.getQn} test={this.test}/>
             {this.state.question}
             {choices}
             </div>

@@ -12,6 +12,7 @@ class Form extends React.Component{
         return(
             <div>
             <button onClick={()=>{this.props.getQn()}}>Clickkkkkkk</button>
+            <button onClick={()=>{this.props.test()}}>Testing</button>
             </div>
             )
     }
