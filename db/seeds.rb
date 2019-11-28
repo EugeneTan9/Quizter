@@ -47,3 +47,17 @@ user4.save
     {user_id: 3, quiz_id: 1, quiz_result: 100},
     {user_id: 3, quiz_id: 2, quiz_result: 100},
   ])
+
+  Question.create!([
+    {quiz_id: 1, body: "In layman's terms, The Force is...", answer: "the energy field that connects all living things in the galaxy"},
+    {quiz_id: 1, body: "The Sith were formed during....", answer: "Hundred Year Darkness"},
+    {quiz_id: 1, body: "Which Akira Kurosawa film inspired George Lucas?", answer: "The Hidden Fortress"},
+    {quiz_id: 1, body: "Who is one of the first to die because of Han Solo in Episode IV?", answer: "Greedo the Rodian"},
+    {quiz_id: 1, body: "How exactly did Princess Leia end up in that bikini?", answer: "Princess Leia infiltrates Jabba's palace."},
+    {quiz_id: 1, body: "Which original character name was NOT in the first draft?", answer: "Princess Dharma"},
+    {quiz_id: 1, body: "What exactly is a Jedi mind trick?", answer: "The ability to change a person's will or perception using the Force"},
+    {quiz_id: 1, body: "What do Luke and Han fight at the beginning of Episode VI to avoid death?", answer: "Sarlacc"},
+    {quiz_id: 1, body: "What type of droid is R2D2?", answer: "Astromech"},
+    {quiz_id: 1, body: "How do the Rebels defeat the Empire?", answer: "The strike team destroys the shield generator."}
+  ])
+
