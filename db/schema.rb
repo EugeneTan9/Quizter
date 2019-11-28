@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_28_005313) do
+ActiveRecord::Schema.define(version: 2019_11_28_021839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,22 @@ ActiveRecord::Schema.define(version: 2019_11_28_005313) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["quiz_id"], name: "index_badges_on_quiz_id"
     t.index ["user_id"], name: "index_badges_on_user_id"
+  end
+
+  create_table "badges_users", id: false, force: :cascade do |t|
+    t.bigint "badge_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["badge_id", "user_id"], name: "index_badges_users_on_badge_id_and_user_id"
+    t.index ["user_id", "badge_id"], name: "index_badges_users_on_user_id_and_badge_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.bigint "quiz_id", null: false
+    t.text "body"
+    t.text "answer"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["quiz_id"], name: "index_questions_on_quiz_id"
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -57,5 +73,6 @@ ActiveRecord::Schema.define(version: 2019_11_28_005313) do
 
   add_foreign_key "badges", "quizzes"
   add_foreign_key "badges", "users"
+  add_foreign_key "questions", "quizzes"
   add_foreign_key "quizzes", "users"
 end
