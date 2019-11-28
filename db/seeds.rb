@@ -38,3 +38,12 @@ user4.save
     {user_id: 3, badge_id: 1},
     {user_id: 3, badge_id: 2}
   ])
+
+  Result.create!([
+    {user_id: 1, quiz_id: 1, quiz_result: 100},
+    {user_id: 1, quiz_id: 2, quiz_result: 40},
+    {user_id: 2, quiz_id: 1, quiz_result: 80},
+    {user_id: 2, quiz_id: 2, quiz_result: 100},
+    {user_id: 3, quiz_id: 1, quiz_result: 100},
+    {user_id: 3, quiz_id: 2, quiz_result: 100},
+  ])
