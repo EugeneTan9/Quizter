@@ -1,4 +1,4 @@
 class Badge < ApplicationRecord
   belongs_to :quiz
-  belongs_to :user
+  has_many :users, through: :badges_users
 end
