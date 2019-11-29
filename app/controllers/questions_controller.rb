@@ -24,8 +24,9 @@ class QuestionsController < ApplicationController
   # POST /questions
   # POST /questions.json
   def create
+    @quiz = Quiz.find(params[:quiz_id])
     @question = Question.new(question_params)
-
+    @question.quiz = @quiz
     respond_to do |format|
       if @question.save
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
@@ -69,6 +70,6 @@ class QuestionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params
-      params.require(:question).permit(:quiz_id, :body, :answer)
+      params.require(:question).permit(:body)
     end
 end
