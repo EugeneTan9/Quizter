@@ -12,6 +12,8 @@
 
 ActiveRecord::Schema.define(version: 2019_11_29_064918) do
 
+
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -40,7 +42,6 @@ ActiveRecord::Schema.define(version: 2019_11_29_064918) do
     t.bigint "quiz_id", null: false
     t.string "title"
     t.integer "criteria"
-    t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["quiz_id"], name: "index_badges_on_quiz_id"
@@ -93,7 +94,6 @@ ActiveRecord::Schema.define(version: 2019_11_29_064918) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "username", default: "", null: false
-    t.string "dp", default: "https://web.aflia.net/wp-content/uploads/2018/12/dp_placeholder-275x300.jpg"
     t.boolean "isActive", default: true, null: false
     t.boolean "isPublic", default: true, null: false
     t.boolean "isAdmin", default: false, null: false
