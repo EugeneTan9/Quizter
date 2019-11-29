@@ -5,4 +5,9 @@
 <%= link_to 'Show', @quiz %> |
 <%= link_to 'Back', quizzes_path %>
 
+<br/>
+<br/>
 Add button to create badge for this quiz
+
+<%= link_to "Link to create a new Badge", new_quiz_badge_path(@quiz), :class => "my-class"%>
+
