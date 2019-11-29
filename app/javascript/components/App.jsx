@@ -4,14 +4,14 @@ import Form from './form'
 
     let qn = 0;
 
-
-
 class App extends React.Component{
     constructor(){
         super()
         this.state ={
             question:"",
-            choices:[]
+            choices:[],
+            qn_num: null,
+
         }
 
         this.getQn = this.getQn.bind(this);
@@ -24,6 +24,7 @@ class App extends React.Component{
         this.getOption();
     }
 
+// getting the quiz qn
     getQn(){
         const url = '/questions.json'
 
@@ -38,11 +39,14 @@ class App extends React.Component{
                 console.log(this.state.question);
                 this.setState({question:this.state.question});
                 qn ++;
+                this.state.qn_num = qn;
+                this.setState({qn_num:this.state.qn_num});
             }).catch((error)=>{
                 console.log(error);
             })
     }
 
+// getting the options to the question
     getOption(){
         const url = '/options.json'
 
@@ -59,6 +63,7 @@ class App extends React.Component{
             })
     }
 
+// shuffling the options in an array so that it can be mapped in random sequence
     shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -78,18 +83,23 @@ class App extends React.Component{
       return array;
     }
 
+    question(){
+        this.getAll()
+
+    }
+
     render(){
         console.log(this.state.choices);
         const choices = this.state.choices.map((choices, index)=>{
-            return(<div>
-                <p>{choices.choice}</p>
+            return(<div key={index}>
+                <button onClick={()=>{this.question()}}>{choices.choice}</button>
                 </div>
                 )
         });
 
         return(
             <div>
-
+            {this.state.qn_num}
             <Form getAll ={this.getAll}/>
             <h3>{this.state.question.body}</h3>
             {choices}
