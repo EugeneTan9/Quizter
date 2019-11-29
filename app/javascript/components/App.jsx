@@ -48,7 +48,7 @@ class App extends React.Component{
 
 // getting the options to the question
     getOption(){
-        const url = '/options.json'
+        const url = '/questions.json'
 
         axios.get(url)
             .then((response)=>{
