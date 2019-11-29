@@ -6,7 +6,7 @@ class DropQuestions < ActiveRecord::Migration[6.0]
       t.references :quiz
       t.integer :question_num
       t.text :body
-      t.string :type
+      t.string :body_type
       t.timestamps
     end
   end
