@@ -1,13 +1,13 @@
-user1 = User.new({email: "david@gmail.com", username: "david", password: "password", isAdmin: false, dp: "https://web.aflia.net/wp-content/uploads/2018/12/dp_placeholder-275x300.jpg", isActive: true, isPublic: true})
+user1 = User.new({email: "ray@gmail.com", username: "ray", password: "password", isAdmin: false, isActive: true, isPublic: true})
 user1.save
-
-user2 = User.new({email: "eugene@gmail.com", username: "eugene", password: "password", isAdmin: false, dp: "https://web.aflia.net/wp-content/uploads/2018/12/dp_placeholder-275x300.jpg", isActive: true, isPublic: true})
+# user1.dp.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
+user2 = User.new({email: "eugene@gmail.com", username: "eugene", password: "password", isAdmin: false, isActive: true, isPublic: true})
 user2.save
 
-user3 = User.new({email: "kevin@gmail.com", username: "kevin", password: "password", isAdmin: false, dp: "https://web.aflia.net/wp-content/uploads/2018/12/dp_placeholder-275x300.jpg", isActive: true, isPublic: true})
+user3 = User.new({email: "kevin@gmail.com", username: "kevin", password: "password", isAdmin: false, isActive: true, isPublic: true})
 user3.save
 
-user4 = User.new({email: "admin@gmail.com", username: "testadmin", password: "password", isAdmin: true, dp: "https://web.aflia.net/wp-content/uploads/2018/12/dp_placeholder-275x300.jpg", isActive: true, isPublic: true})
+user4 = User.new({email: "admin@gmail.com", username: "testadmin", password: "password", isAdmin: true, isActive: true, isPublic: true})
 user4.save
 
   Quiz.create!([
@@ -16,13 +16,17 @@ user4.save
   ])
 
 
-  
-  Badge.create!([
-    {user_id: 1, quiz_id: 1, title: "Novice Jedi Badge", criteria: 50, img_url: "/test/jedinovice.png"},
-    {user_id: 1, quiz_id: 1, title: "Master Jedi Badge", criteria: 75, img_url: "/test/jedimaster.png"},
-    {user_id: 3, quiz_id: 2, title: "Avengers Badge", criteria: 75, img_url: "/test/bananakiller.png"}
-  ])
 
+  # Badge.create!([
+  #   {user_id: 1, quiz_id: 1, title: "Novice Jedi Badge", criteria: 50}
+  #   {user_id: 1, quiz_id: 1, title: "Master Jedi Badge", criteria: 75},
+  #   {user_id: 3, quiz_id: 2, title: "Avengers Badge", criteria: 75}
+  # ])
+
+  badge1 = Badge.new({user_id:1, quiz_id: 1, title: "Novice Jedi Badge", criteria: 50})
+  badge1.save
+  badge1.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
+  badge1.save
   users = [user1,user2,user3,user4]
   users.each do |user|
     5.times do |n|
@@ -54,7 +58,7 @@ user4.save
     {quiz_id: 1, body: "Which Akira Kurosawa film inspired George Lucas?"},
     {quiz_id: 1, body: "Who is one of the first to die because of Han Solo in Episode IV?"},
     {quiz_id: 1, body: "How exactly did Princess Leia end up in that bikini?"},
-    
+
     {quiz_id: 1, body: "Which original character name was NOT in the first draft?"},
     {quiz_id: 1, body: "What exactly is a Jedi mind trick?"},
     {quiz_id: 1, body: "What do Luke and Han fight at the beginning of Episode VI to avoid death?"},
@@ -93,7 +97,7 @@ user4.save
   {question_id: 6, choice: "Annikin Starkiller"},
   {question_id: 6, choice: "Mace Windy"},
   {question_id: 6, choice: "CJ Thorpe"},
-  
+
   {question_id: 7, choice: "The ability to change a person's will or perception using the Force", isAnswer: true},
   {question_id: 7, choice: "Electroencephalography that lets Jedi read other people's beta waves"},
   {question_id: 7, choice: "The ability to implant memories into others"},
@@ -114,7 +118,3 @@ user4.save
   {question_id: 10, choice: "Anakin Skywalker comes through and abdicates his position."},
   {question_id: 10, choice: "Princess Leia and Han Solo steal a TIE fighter."},
   ])
-
-  
-
-
