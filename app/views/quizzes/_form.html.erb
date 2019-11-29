@@ -12,26 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description, :size => "50x5" %>
   </div>
 
   <div class="field">
     <%= form.label :img_url %>
-    <%= form.text_field :img_url %>
+		<%= form.file_field :img_url %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  
 <% end %>
