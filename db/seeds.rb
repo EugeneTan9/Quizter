@@ -76,49 +76,49 @@ user4.save
     {quiz_id: 1, question_num: 2, body: "The Clone Wars", type: "F"},
     {quiz_id: 1, question_num: 2, body: "Imperial Era", type: "F"},
   
-    {quiz_id: 1, body: "Which Akira Kurosawa film inspired George Lucas?", type: "Q"},
+    {quiz_id: 1, question_num: 3, body: "Which Akira Kurosawa film inspired George Lucas?", type: "Q"},
     {quiz_id: 1, question_num: 3, body: "The Hidden Fortress", type: "C"},
     {quiz_id: 1, question_num: 3, body: "No Regrets for Our Youth", type: "F"},
     {quiz_id: 1, question_num: 3, body: "Ikiru", type: "F"},
     {quiz_id: 1, question_num: 3, body: "Dersu Uzala", type: "F"},
   
-    {quiz_id: 1, body: "Who is one of the first to die because of Han Solo in Episode IV?", type: "Q"},
+    {quiz_id: 1, question_num: 4, body: "Who is one of the first to die because of Han Solo in Episode IV?", type: "Q"},
     {quiz_id: 1, question_num: 4, body: "Greedo the Rodian", type: "C"},
     {quiz_id: 1, question_num: 4, body: "Jas Emari, bounty hunter", type: "F"},
     {quiz_id: 1, question_num: 4, body: "4-LOM, hunter droid", type: "F"},
     {quiz_id: 1, question_num: 4, body: "Bossk", type: "F"},
   
-    {quiz_id: 1, body: "How exactly did Princess Leia end up in that bikini?", type: "Q"},
+    {quiz_id: 1, question_num: 5, body: "How exactly did Princess Leia end up in that bikini?", type: "Q"},
     {quiz_id: 1, question_num: 5, body: "Princess Leia infiltrates Jabba's palace.", type: "C"},
     {quiz_id: 1, question_num: 5, body: "Princess Leia doesn't communicate her entire plan to Chewbacca.", type: "F"},
     {quiz_id: 1, question_num: 5, body: "Luke arrived too late to help.", type: "F"},
     {quiz_id: 1, question_num: 5, body: "Lando Calrissian betrays Princess Leia.", type: "F"},
   
-    {quiz_id: 1, body: "Which original character name was NOT in the first draft?", type: "C"},
+    {quiz_id: 1, question_num: 6, body: "Which original character name was NOT in the first draft?", type: "C"},
     {quiz_id: 1, question_num: 6, body: "Princess Dharma", type: "C"},
     {quiz_id: 1, question_num: 6, body: "Annikin Starkiller", type: "F"},
     {quiz_id: 1, question_num: 6, body: "Mace Windy", type: "F"},
     {quiz_id: 1, question_num: 6, body: "CJ Thorpe", type: "F"},
     
-    {quiz_id: 1, body: "What exactly is a Jedi mind trick?", type: "Q"},
+    {quiz_id: 1, question_num: 7, body: "What exactly is a Jedi mind trick?", type: "Q"},
     {quiz_id: 1, question_num: 7, body: "The ability to change a person's will or perception using the Force", type: "C"},
     {quiz_id: 1, question_num: 7, body: "Electroencephalography that lets Jedi read other people's beta waves", type: "F"},
     {quiz_id: 1, question_num: 7, body: "The ability to implant memories into others", type: "F"},
     {quiz_id: 1, question_num: 7, body: "The ability to read someone else's mind through sense of the Force", type: "F"},
   
-    {quiz_id: 1, body: "What do Luke and Han fight at the beginning of Episode VI to avoid death?", type: "Q"},
+    {quiz_id: 1, question_num: 8, body: "What do Luke and Han fight at the beginning of Episode VI to avoid death?", type: "Q"},
     {quiz_id: 1, question_num: 8, body: "Sarlacc", type: "C"},
     {quiz_id: 1, question_num: 8, body: "Rancor", type: "F"},
     {quiz_id: 1, question_num: 8, body: "Karbin", type: "F"},
     {quiz_id: 1, question_num: 8, body: "Morley", type: "F"},
   
-    {quiz_id: 1, body: "What type of droid is R2D2?", type: "Q"},
+    {quiz_id: 1, question_num: 9, body: "What type of droid is R2D2?", type: "Q"},
     {quiz_id: 1, question_num: 9, body: "Astromech", type: "C"},
     {quiz_id: 1, question_num: 9, body: "Maintenance", type: "F"},
     {quiz_id: 1, question_num: 9, body: "Protocol", type: "F"},
     {quiz_id: 1, question_num: 9, body: "Gladiator", type: "F"},
   
-    {quiz_id: 1, body: "How do the Rebels defeat the Empire?", type: "Q"}
+    {quiz_id: 1, question_num: 10, body: "How do the Rebels defeat the Empire?", type: "Q"}
     {quiz_id: 1, question_num: 10, body: "The strike team destroys the shield generator.", type: "C"},
     {quiz_id: 1, question_num: 10, body: "Luke convinces his father to rejoin the Jedi.", type: "F"},
     {quiz_id: 1, question_num: 10, body: "Anakin Skywalker comes through and abdicates his position.", type: "F"},
