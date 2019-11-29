@@ -25,7 +25,6 @@ class BadgesController < ApplicationController
   # POST /badges.json
   def create
     @badge = Badge.new(badge_params)
-
     respond_to do |format|
       if @badge.save
         format.html { redirect_to @badge, notice: 'Badge was successfully created.' }
