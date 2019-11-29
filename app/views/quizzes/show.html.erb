@@ -1,24 +1,11 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @quiz.user_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
+<div class="quiz_title">
+<h1>
   <%= @quiz.title %>
-</p>
+</h1>
 
-<p>
-  <strong>Description:</strong>
-  <%= @quiz.description %>
-</p>
-
-<p>
-  <strong>Img url:</strong>
-  <%= @quiz.img_url %>
-</p>
+<img class="badge_img"src= <%= @quiz.img_url %>>
+</div>
 
 <%= link_to 'Edit', edit_quiz_path(@quiz) %> |
 <%= link_to 'Back', quizzes_path %>
