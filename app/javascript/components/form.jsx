@@ -11,8 +11,7 @@ class Form extends React.Component{
     render(){
         return(
             <div>
-            <button onClick={()=>{this.props.getQn()}}>Clickkkkkkk</button>
-            <button onClick={()=>{this.props.test()}}>Testing</button>
+            <button onClick={()=>{this.props.getAll()}}>Clickkkkkkk</button>
             </div>
             )
     }
