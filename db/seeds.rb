@@ -23,17 +23,17 @@ user4.save
   #   {user_id: 3, quiz_id: 2, title: "Avengers Badge", criteria: 75}
   # ])
 
-  badge1 = Badge.new({user_id:1, quiz_id: 1, title: "Novice Jedi Badge", criteria: 50})
+  badge1 = Badge.new({quiz_id: 1, title: "Novice Jedi Badge", criteria: 50})
   badge1.save
   badge1.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
   badge1.save
 
-  badge2 = Badge.new({user_id:1, quiz_id: 1, title: "Master Jedi Badge", criteria: 75})
+  badge2 = Badge.new({quiz_id: 1, title: "Master Jedi Badge", criteria: 75})
   badge2.save
   badge2.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
   badge2.save
 
-  badge3 = Badge.new({user_id:3, quiz_id: 2, title: "Avengers Badge", criteria: 75})
+  badge3 = Badge.new({quiz_id: 2, title: "Avengers Badge", criteria: 75})
   badge3.save
   badge3.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
   badge3.save
@@ -64,63 +64,63 @@ user4.save
   ])
 
   Question.create!([
-    {quiz_id: 1, question_num: 1, body: "In layman's terms, The Force is...", type: "Q"},
-    {quiz_id: 1, question_num: 1, body: "the energy field that connects all living things in the galaxy", type: "C"},
-    {quiz_id: 1, question_num: 1, body: "the inner energy that allows the Jedi to harness their power", type: "F"},
-    {quiz_id: 1, question_num: 1, body: "a Life Force that renders one's spirit immortal", type: "F"},
-    {quiz_id: 1, question_num: 1, body: "the chi used by the Jedi to defeat external forces", type: "F"},
+    {quiz_id: 1, question_num: 1, body: "In layman's terms, The Force is...", body_type: "Q"},
+    {quiz_id: 1, question_num: 1, body: "the energy field that connects all living things in the galaxy", body_type: "C"},
+    {quiz_id: 1, question_num: 1, body: "the inner energy that allows the Jedi to harness their power", body_type: "F"},
+    {quiz_id: 1, question_num: 1, body: "a Life Force that renders one's spirit immortal", body_type: "F"},
+    {quiz_id: 1, question_num: 1, body: "the chi used by the Jedi to defeat external forces", body_type: "F"},
   
-    {quiz_id: 1, question_num: 2, body: "The Sith were formed during....", type: "Q"},
-    {quiz_id: 1, question_num: 2, body: "Hundred Year Darkness", type: "C"},
-    {quiz_id: 1, question_num: 2, body: "Dark age", type: "F"},
-    {quiz_id: 1, question_num: 2, body: "The Clone Wars", type: "F"},
-    {quiz_id: 1, question_num: 2, body: "Imperial Era", type: "F"},
+    {quiz_id: 1, question_num: 2, body: "The Sith were formed during....", body_type: "Q"},
+    {quiz_id: 1, question_num: 2, body: "Hundred Year Darkness", body_type: "C"},
+    {quiz_id: 1, question_num: 2, body: "Dark age", body_type: "F"},
+    {quiz_id: 1, question_num: 2, body: "The Clone Wars", body_type: "F"},
+    {quiz_id: 1, question_num: 2, body: "Imperial Era", body_type: "F"},
   
-    {quiz_id: 1, question_num: 3, body: "Which Akira Kurosawa film inspired George Lucas?", type: "Q"},
-    {quiz_id: 1, question_num: 3, body: "The Hidden Fortress", type: "C"},
-    {quiz_id: 1, question_num: 3, body: "No Regrets for Our Youth", type: "F"},
-    {quiz_id: 1, question_num: 3, body: "Ikiru", type: "F"},
-    {quiz_id: 1, question_num: 3, body: "Dersu Uzala", type: "F"},
+    {quiz_id: 1, question_num: 3, body: "Which Akira Kurosawa film inspired George Lucas?", body_type: "Q"},
+    {quiz_id: 1, question_num: 3, body: "The Hidden Fortress", body_type: "C"},
+    {quiz_id: 1, question_num: 3, body: "No Regrets for Our Youth", body_type: "F"},
+    {quiz_id: 1, question_num: 3, body: "Ikiru", body_type: "F"},
+    {quiz_id: 1, question_num: 3, body: "Dersu Uzala", body_type: "F"},
   
-    {quiz_id: 1, question_num: 4, body: "Who is one of the first to die because of Han Solo in Episode IV?", type: "Q"},
-    {quiz_id: 1, question_num: 4, body: "Greedo the Rodian", type: "C"},
-    {quiz_id: 1, question_num: 4, body: "Jas Emari, bounty hunter", type: "F"},
-    {quiz_id: 1, question_num: 4, body: "4-LOM, hunter droid", type: "F"},
-    {quiz_id: 1, question_num: 4, body: "Bossk", type: "F"},
+    {quiz_id: 1, question_num: 4, body: "Who is one of the first to die because of Han Solo in Episode IV?", body_type: "Q"},
+    {quiz_id: 1, question_num: 4, body: "Greedo the Rodian", body_type: "C"},
+    {quiz_id: 1, question_num: 4, body: "Jas Emari, bounty hunter", body_type: "F"},
+    {quiz_id: 1, question_num: 4, body: "4-LOM, hunter droid", body_type: "F"},
+    {quiz_id: 1, question_num: 4, body: "Bossk", body_type: "F"},
   
-    {quiz_id: 1, question_num: 5, body: "How exactly did Princess Leia end up in that bikini?", type: "Q"},
-    {quiz_id: 1, question_num: 5, body: "Princess Leia infiltrates Jabba's palace.", type: "C"},
-    {quiz_id: 1, question_num: 5, body: "Princess Leia doesn't communicate her entire plan to Chewbacca.", type: "F"},
-    {quiz_id: 1, question_num: 5, body: "Luke arrived too late to help.", type: "F"},
-    {quiz_id: 1, question_num: 5, body: "Lando Calrissian betrays Princess Leia.", type: "F"},
+    {quiz_id: 1, question_num: 5, body: "How exactly did Princess Leia end up in that bikini?", body_type: "Q"},
+    {quiz_id: 1, question_num: 5, body: "Princess Leia infiltrates Jabba's palace.", body_type: "C"},
+    {quiz_id: 1, question_num: 5, body: "Princess Leia doesn't communicate her entire plan to Chewbacca.", body_type: "F"},
+    {quiz_id: 1, question_num: 5, body: "Luke arrived too late to help.", body_type: "F"},
+    {quiz_id: 1, question_num: 5, body: "Lando Calrissian betrays Princess Leia.", body_type: "F"},
   
-    {quiz_id: 1, question_num: 6, body: "Which original character name was NOT in the first draft?", type: "C"},
-    {quiz_id: 1, question_num: 6, body: "Princess Dharma", type: "C"},
-    {quiz_id: 1, question_num: 6, body: "Annikin Starkiller", type: "F"},
-    {quiz_id: 1, question_num: 6, body: "Mace Windy", type: "F"},
-    {quiz_id: 1, question_num: 6, body: "CJ Thorpe", type: "F"},
+    {quiz_id: 1, question_num: 6, body: "Which original character name was NOT in the first draft?", body_type: "Q"},
+    {quiz_id: 1, question_num: 6, body: "Princess Dharma", body_type: "C"},
+    {quiz_id: 1, question_num: 6, body: "Annikin Starkiller", body_type: "F"},
+    {quiz_id: 1, question_num: 6, body: "Mace Windy", body_type: "F"},
+    {quiz_id: 1, question_num: 6, body: "CJ Thorpe", body_type: "F"},
     
-    {quiz_id: 1, question_num: 7, body: "What exactly is a Jedi mind trick?", type: "Q"},
-    {quiz_id: 1, question_num: 7, body: "The ability to change a person's will or perception using the Force", type: "C"},
-    {quiz_id: 1, question_num: 7, body: "Electroencephalography that lets Jedi read other people's beta waves", type: "F"},
-    {quiz_id: 1, question_num: 7, body: "The ability to implant memories into others", type: "F"},
-    {quiz_id: 1, question_num: 7, body: "The ability to read someone else's mind through sense of the Force", type: "F"},
+    {quiz_id: 1, question_num: 7, body: "What exactly is a Jedi mind trick?", body_type: "Q"},
+    {quiz_id: 1, question_num: 7, body: "The ability to change a person's will or perception using the Force", body_type: "C"},
+    {quiz_id: 1, question_num: 7, body: "Electroencephalography that lets Jedi read other people's beta waves", body_type: "F"},
+    {quiz_id: 1, question_num: 7, body: "The ability to implant memories into others", body_type: "F"},
+    {quiz_id: 1, question_num: 7, body: "The ability to read someone else's mind through sense of the Force", body_type: "F"},
   
-    {quiz_id: 1, question_num: 8, body: "What do Luke and Han fight at the beginning of Episode VI to avoid death?", type: "Q"},
-    {quiz_id: 1, question_num: 8, body: "Sarlacc", type: "C"},
-    {quiz_id: 1, question_num: 8, body: "Rancor", type: "F"},
-    {quiz_id: 1, question_num: 8, body: "Karbin", type: "F"},
-    {quiz_id: 1, question_num: 8, body: "Morley", type: "F"},
+    {quiz_id: 1, question_num: 8, body: "What do Luke and Han fight at the beginning of Episode VI to avoid death?", body_type: "Q"},
+    {quiz_id: 1, question_num: 8, body: "Sarlacc", body_type: "C"},
+    {quiz_id: 1, question_num: 8, body: "Rancor", body_type: "F"},
+    {quiz_id: 1, question_num: 8, body: "Karbin", body_type: "F"},
+    {quiz_id: 1, question_num: 8, body: "Morley", body_type: "F"},
   
-    {quiz_id: 1, question_num: 9, body: "What type of droid is R2D2?", type: "Q"},
-    {quiz_id: 1, question_num: 9, body: "Astromech", type: "C"},
-    {quiz_id: 1, question_num: 9, body: "Maintenance", type: "F"},
-    {quiz_id: 1, question_num: 9, body: "Protocol", type: "F"},
-    {quiz_id: 1, question_num: 9, body: "Gladiator", type: "F"},
+    {quiz_id: 1, question_num: 9, body: "What body_type of droid is R2D2?", body_type: "Q"},
+    {quiz_id: 1, question_num: 9, body: "Astromech", body_type: "C"},
+    {quiz_id: 1, question_num: 9, body: "Maintenance", body_type: "F"},
+    {quiz_id: 1, question_num: 9, body: "Protocol", body_type: "F"},
+    {quiz_id: 1, question_num: 9, body: "Gladiator", body_type: "F"},
   
-    {quiz_id: 1, question_num: 10, body: "How do the Rebels defeat the Empire?", type: "Q"}
-    {quiz_id: 1, question_num: 10, body: "The strike team destroys the shield generator.", type: "C"},
-    {quiz_id: 1, question_num: 10, body: "Luke convinces his father to rejoin the Jedi.", type: "F"},
-    {quiz_id: 1, question_num: 10, body: "Anakin Skywalker comes through and abdicates his position.", type: "F"},
-    {quiz_id: 1, question_num: 10, body: "Princess Leia and Han Solo steal a TIE fighter.", type: "F"},
+    {quiz_id: 1, question_num: 10, body: "How do the Rebels defeat the Empire?", body_type: "Q"},
+    {quiz_id: 1, question_num: 10, body: "The strike team destroys the shield generator.", body_type: "C"},
+    {quiz_id: 1, question_num: 10, body: "Luke convinces his father to rejoin the Jedi.", body_type: "F"},
+    {quiz_id: 1, question_num: 10, body: "Anakin Skywalker comes through and abdicates his position.", body_type: "F"},
+    {quiz_id: 1, question_num: 10, body: "Princess Leia and Han Solo steal a TIE fighter.", body_type: "F"}
     ])
