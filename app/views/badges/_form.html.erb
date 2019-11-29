@@ -10,11 +10,7 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :quiz_id %>
-    <%= form.text_field :quiz_id %>
-  </div>
+  <%= form.hidden_field :quiz_id, value: params[:quiz_id] %>
 
   <div class="field">
     <%= form.label :title %>
@@ -22,18 +18,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :criteria %>
-    <%= form.number_field :criteria %>
+    <%= form.label :"Criteria for Passing 0-100 (eg 75, 90)" %>
+    <%= form.select :criteria, options_for_select(0..100), :selected => :criteria %>
   </div>
 
   <div class="field">
     <%= form.label :img_url %>
 		<%= form.file_field :img_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
   </div>
 
   <div class="actions">
