@@ -21,7 +21,6 @@
         <td><%= badge.title %></td>
         <td><%= badge.criteria %></td>
         <td><%= badge.img_url %></td>
-        <td><%= badge.user_id %></td>
         <td><%= link_to 'Show', badge %></td>
         <td><%= link_to 'Edit', edit_badge_path(badge) %></td>
         <td><%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -32,4 +31,3 @@
 
 <br>
 
-<%= link_to 'New Badge', new_badge_path %>
