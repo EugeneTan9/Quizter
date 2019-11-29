@@ -12,8 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2019_11_29_064918) do
 
-
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_11_29_064918) do
     t.bigint "quiz_id"
     t.integer "question_num"
     t.text "body"
-    t.string "type"
+    t.string "body_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["quiz_id"], name: "index_questions_on_quiz_id"
@@ -71,7 +69,6 @@ ActiveRecord::Schema.define(version: 2019_11_29_064918) do
     t.string "img_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.boolean "isPublished", default: false, null: false
     t.index ["user_id"], name: "index_quizzes_on_user_id"
   end
 

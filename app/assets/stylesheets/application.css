@@ -13,12 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-
-.quiz_title{
-	display: flex;
-}
-
- .badge_img{
- 	width: 150px;
- }
