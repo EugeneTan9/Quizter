@@ -26,17 +26,15 @@ class App extends React.Component{
 
 // getting the quiz qn
     getQn(){
+        // const url = '/quizzes/'+quiz_id+'/questions.json'
         const url = '/questions.json'
-
         axios.get(url)
             .then((response) => {
                 const data = response.data
                 const quiz_id = window.location.pathname.split("/")[2];
-                console.log(quiz_id)
                 const filteredData = data.filter(x=>x.quiz_id == quiz_id)
-                console.log(filteredData)
                 this.state.question = filteredData[qn];
-                console.log(this.state.question);
+                // console.log(this.state.question);
                 this.setState({question:this.state.question});
                 qn ++;
                 this.state.qn_num = qn;
@@ -54,7 +52,7 @@ class App extends React.Component{
             .then((response)=>{
                 const data = response.data
                 const quiz_id = window.location.pathname.split("/")[2];
-                const filteredOps = data.filter(x=>x.question_id == qn);
+                const filteredOps = data.filter(x=>x.quiz_id == quiz_id && x.body_type !== "Q" && x.question_num === qn);
                 this.shuffle(filteredOps)
                 this.state.choices = filteredOps;
                 this.setState({choices:this.state.choices});
