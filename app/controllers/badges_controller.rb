@@ -15,10 +15,14 @@ class BadgesController < ApplicationController
   # GET /badges/new
   def new
     @badge = Badge.new
+    @quiz_id = params[:id]
   end
 
   # GET /badges/1/edit
   def edit
+    # @badge = Badge.find(params[:id])
+    @quiz_id = Badge.find(params[:id]).quiz.id
+    
   end
 
   # POST /badges
