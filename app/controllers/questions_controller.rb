@@ -2,14 +2,15 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions
-  # GET /questions.json
+  # GET /quizzes/:quiz_id/questions.json
   def index
-    @questions = Question.all
+    @questions = Quiz.find(params[:quiz_id]).questions
   end
 
   # GET /questions/1
-  # GET /questions/1.json
+  # GET /quizzes/:quiz_id/questions/:question_num.json
   def show
+    @question = Quiz.find(params[:quiz_id]).questions.where(params[:question_id])
   end
 
   # GET /questions/new
