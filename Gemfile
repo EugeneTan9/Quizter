@@ -25,7 +25,7 @@ gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
-gem 'bootstrap', '~> 4.3.1'
+
 gem 'turbolinks', '~> 2.5', '>= 2.5.3'
 
 group :development, :test do
