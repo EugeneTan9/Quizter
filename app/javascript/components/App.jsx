@@ -3,7 +3,8 @@ import axios from 'axios';
 import Form from './form'
 
     let qn = 0;
-
+    let quiz_id = window.location.pathname.split("/")[2];
+    const scoreArr = [];
 class App extends React.Component{
     constructor(){
         super()
@@ -11,47 +12,41 @@ class App extends React.Component{
             question:"",
             choices:[],
             qn_num: null,
-
+            answer:""
         }
 
         this.getQn = this.getQn.bind(this);
         this.getOption = this.getOption.bind(this);
-        this.getAll = this.getAll.bind(this);
+        this.saveAnw = this.saveAnw.bind(this);
     }
 
-    getAll(){
-        this.getQn();
-        this.getOption();
-    }
-
-// getting the quiz qn
     getQn(){
-        // const url = '/quizzes/'+quiz_id+'/questions.json'
-        const url = '/questions.json'
+        const url= '/quizzes/' + quiz_id + '/questions.json'
+
         axios.get(url)
             .then((response) => {
-                const data = response.data
-                const quiz_id = window.location.pathname.split("/")[2];
-                const filteredData = data.filter(x=>x.quiz_id == quiz_id)
-                this.state.question = filteredData[qn];
-                // console.log(this.state.question);
-                this.setState({question:this.state.question});
                 qn ++;
+                const data = response.data
+                const filteredData = data.filter(x=>x.quiz_id == quiz_id && x.body_type === "Q" && x.question_num === qn)
+                const answer = data.filter(x=>x.quiz_id == quiz_id && x.body_type === "C" && x.question_num === qn)
+                this.state.answer = answer[0].body;
+                this.setState({answer:this.state.answer});
+                this.state.question = filteredData[0].body;
+                this.setState({question:this.state.question})
                 this.state.qn_num = qn;
                 this.setState({qn_num:this.state.qn_num});
-            }).catch((error)=>{
+                this.getOption()
+            }).catch((error)=> {
                 console.log(error);
             })
     }
 
-// getting the options to the question
     getOption(){
-        const url = '/questions.json'
+        const url= '/quizzes/' + quiz_id + '/questions.json'
 
         axios.get(url)
             .then((response)=>{
                 const data = response.data
-                const quiz_id = window.location.pathname.split("/")[2];
                 const filteredOps = data.filter(x=>x.quiz_id == quiz_id && x.body_type !== "Q" && x.question_num === qn);
                 this.shuffle(filteredOps)
                 this.state.choices = filteredOps;
@@ -60,6 +55,7 @@ class App extends React.Component{
                 console.log(error);
             })
     }
+
 
 // shuffling the options in an array so that it can be mapped in random sequence
     shuffle(array) {
@@ -81,26 +77,37 @@ class App extends React.Component{
       return array;
     }
 
-    question(){
-        this.getAll()
+    saveAnw(){
+        console.log(event.target.innerHTML);
+        console.log(this.state.answer);
+        if(event.target.innerHTML === this.state.answer){
+            scoreArr.push(1);
+            console.log(scoreArr);
+        }else{
+            scoreArr.push(0);
+            console.log(scoreArr);
+        }
+        this.getQn()
 
     }
 
     render(){
-        console.log(this.state.choices);
+       // console.log(this.state.choices);
         const choices = this.state.choices.map((choices, index)=>{
             return(<div key={index}>
-                <button onClick={()=>{this.question()}}>{choices.choice}</button>
+                <button onClick={()=>{this.saveAnw(event)}}>{choices.body}</button>
                 </div>
                 )
         });
 
         return(
             <div>
-            {this.state.qn_num}
-            <Form getAll ={this.getAll}/>
-            <h3>{this.state.question.body}</h3>
-            {choices}
+                <div>
+                    <Form getQn ={this.getQn}/>
+                    <h4>{this.state.qn_num}</h4>
+                    <h2>{this.state.question}</h2>
+                    {choices}
+                </div>
             </div>
             )
     }
