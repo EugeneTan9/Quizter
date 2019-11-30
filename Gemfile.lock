@@ -98,6 +98,8 @@ GEM
     execjs (2.7.0)
     ffaker (2.13.0)
     ffi (1.11.3)
+    font_awesome5_rails (0.9.0)
+      railties (>= 4.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     i18n (1.7.0)
@@ -234,12 +236,14 @@ DEPENDENCIES
   capybara (>= 2.15)
   devise
   ffaker (~> 2.13)
+  font_awesome5_rails
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   puma (~> 4.1)
   rails (~> 6.0.1)
   sass-rails (>= 6)
+  sassc-rails
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
