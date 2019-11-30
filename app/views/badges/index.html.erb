@@ -17,10 +17,12 @@
   <tbody>
     <% @badges.each do |badge| %>
       <tr>
-        <td><%= badge.quiz_id %></td>
+        <td><%= fa_icon "baby", class: 'mx-2', size: '3x' %>
+        <%= badge.quiz_id %></td>
         <td><%= badge.title %></td>
         <td><%= badge.criteria %></td>
-        <td><%= badge.img_url %></td>
+        <td><i class="fab fa-facebook-f fa-3x mx-2"></i>
+        <%= badge.img_url %></td>
         <td><%= link_to 'Show', badge %></td>
         <td><%= link_to 'Edit', edit_badge_path(badge) %></td>
         <td><%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>

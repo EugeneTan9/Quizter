@@ -17,4 +17,13 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import 'bootstrap'
-import './src/application.scss'
+import '../stylesheets/application.scss'
+
+import '@fortawesome/fontawesome-free';
+
+import { library, dom } from '@fortawesome/fontawesome-svg-core'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+library.add(fas, faTwitter)
+    // Kicks off the process of finding <i> tags and replacing with <svg>
+dom.watch()

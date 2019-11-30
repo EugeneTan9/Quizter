@@ -25,8 +25,11 @@ gem 'devise'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+
+# stuff added by david to enable bootstrap etc
 gem 'bootstrap', '~> 4.3.1'
 gem 'turbolinks', '~> 2.5', '>= 2.5.3'
+gem 'font_awesome5_rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
