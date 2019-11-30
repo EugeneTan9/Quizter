@@ -37,13 +37,10 @@
 					</li>
 					<% if user_signed_in?%>
 					<li class="nav-item">
-						<%= link_to '<i class="fas fa-user-friends"></i> Find friends'.html_safe, users_path,{:class => "nav-link"} %>
+						<%= link_to '<i class="fas fa-user-friends"></i> Quizzes'.html_safe, quizzes_path,{:class => "nav-link"} %>
 					</li>
 					<li class="nav-item">
-						<%= link_to '<i class="far fa-calendar-alt"></i> Schedules'.html_safe, schedules_path,{:class => "nav-link"} %>
-					</li>
-					<li class="nav-item">
-						<%= link_to '<i class="far fa-calendar"></i> Free Times'.html_safe, freetimes_path,{:class => "nav-link"} %>
+						<%= link_to '<i class="far fa-calendar-alt"></i> Badges'.html_safe, badges_path,{:class => "nav-link"} %>
 					</li>
 					<% end %>
 				</ul>
