@@ -15,8 +15,6 @@ class BadgesController < ApplicationController
   # GET /badges/new
   def new
     @quiz_id = params[:quiz_id]
-    p "output!"
-    p @quiz_id
     @badge = Badge.new
   end
 
