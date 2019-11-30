@@ -20,7 +20,7 @@
 	<div class="fun-hover">
 
 
-		<nav class="navbar navbar-expand-lg">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark"">
 			<div class=" d-flex  align-items-center">
 				<button class="navbar-toggler btn btn-outline-danger mx-3" type="button" data-toggle="collapse" data-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,11 +36,18 @@
 
 					</li>
 					<% if user_signed_in?%>
+                 <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Quizzes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          						<%= link_to '<i class="fas fa-poll"></i>My Quizzes'.html_safe, quizzes_path,{:class => "dropdown-item"} %>
+                      <div class="dropdown-divider"></div>
+          						<%= link_to '<i class="far fa-question-circle"></i>Create a Quiz'.html_safe, quizzes_path,{:class => "dropdown-item"} %>
+      </li>
+				
 					<li class="nav-item">
-						<%= link_to '<i class="fas fa-user-friends"></i> Quizzes'.html_safe, quizzes_path,{:class => "nav-link"} %>
-					</li>
-					<li class="nav-item">
-						<%= link_to '<i class="far fa-calendar-alt"></i> Badges'.html_safe, badges_path,{:class => "nav-link"} %>
+						<%= link_to '<i class="fas fa-certificate"></i> Badges'.html_safe, badges_path,{:class => "nav-link"} %>
 					</li>
 					<% end %>
 				</ul>
