@@ -1,0 +1,15 @@
+.card{
+	background-color: orange;
+	width: 900px;
+	height: 200px;
+}
+
+.hide{
+	display: none;
+}
+
+.results_card{
+	background-color: orange;
+	width: 900px;
+	height: 200px;
+}

@@ -11,7 +11,7 @@ class Form extends React.Component{
     render(){
         return(
             <div>
-            <button onClick={()=>{this.props.getQn()}}>Clickkkkkkk</button>
+            <button className={this.props.hide_btn} onClick={()=>{this.props.getStarted()}}>BEGIN</button>
             </div>
             )
     }
