@@ -7,8 +7,5 @@
 <img class="badge_img"src= <%= @quiz.img_url %>>
 </div>
 
-<%= link_to 'Add question', new_quiz_question_path(@quiz) %>
-<%= link_to 'Edit', edit_quiz_path(@quiz) %> |
-<%= link_to 'Back', quizzes_path %>
 
 <%= javascript_pack_tag 'hello_react' %>
