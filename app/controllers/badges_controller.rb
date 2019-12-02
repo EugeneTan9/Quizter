@@ -4,6 +4,7 @@ class BadgesController < ApplicationController
   # GET /badges
   # GET /badges.json
   def index
+    
     @badges = Badge.all
 
     # @users = User.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
