@@ -12,39 +12,7 @@
                 <p class="card-text"><u>Earned</u> <br/> <%= badge.created_at %></p>
             </div>
         </div>
-
+   
 <% end %>
   </div>
 
-
-<h1>Badges</h1>
-
-
-  <table>
-  <thead>
-    <tr>
-      <th>Quiz</th>
-      <th>Title</th>
-      <th>Criteria</th>
-      <th>Img url</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @badges.each do |badge| %>
-      <tr>
-        <td><%= badge.quiz_id %></td>
-        <td><%= badge.title %></td>
-        <td><%= badge.criteria %></td>
-        <td><%= badge.img_url %></td>
-        <td><%= link_to 'Show', badge %></td>
-        <td><%= link_to 'Edit', edit_badge_path(badge) %></td>
-        <td><%= link_to 'Destroy', badge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>

@@ -1,33 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Quizzes</h1>
+    <h3>My Created Quizzes</h3>
+    <div class="card-deck mt-4">
+<% @quizzes.limit(5).each do |quiz| %>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Img url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+        <div class="card mb-4" style="width: 12rem;">
+        <% if  quiz.img_url.present? %>
+            <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
+                   <% else %>
+                   <%= image_tag 'badgeunderconstruction.png', :class=>"card-img-top img-fluid"%>
+            <% end %>
+            <div class="card-body">
+                <h4 class="card-title"><%= quiz.title %></h4>
+                <p class="card-text"><%= truncate quiz.description, length: 80 %></p>
+              
+               <%= link_to 'View this quiz', quiz %><br/>
+        <%= link_to 'Edit', edit_quiz_path(quiz) %><br/>
+        <%= link_to 'Delete', quiz, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+        </div>
 
-  <tbody>
-    <% @quizzes.each do |quiz| %>
-      <tr>
-        <td><%= quiz.user_id %></td>
-        <td><%= quiz.title %></td>
-        <td><%= quiz.description %></td>
-        <td><%= quiz.img_url %></td>
-        <td><%= link_to 'Show', quiz %></td>
-        <td><%= link_to 'Edit', edit_quiz_path(quiz) %></td>
-        <td><%= link_to 'Destroy', quiz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% end %>
+  </div>
 
 <br>
 
-<%= link_to 'New Quiz', new_quiz_path %>
+<%= link_to 'Create a New Quiz', new_quiz_path %>

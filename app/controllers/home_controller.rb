@@ -1,16 +1,18 @@
 class HomeController < ApplicationController
   def index
-    @quizzes = Quiz.all
+    @allQuizzes = Quiz.all
     @results = Result.all
+    @badges = Badge.all
 
-    @quizzes.each do |quiz|
-      @results.each do |result|
-        if quiz.id == result.quiz_id 
-        #  quiz.newNumber = quiz.newNumber +1 
+  @quizzes = Quiz.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
 
-        end
-      end  
-    end
+
+  @quizzesCount = Result.group(:quiz_id).count
+
+  @users = User.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
+
+  @badgesCount = Result.group(:user_id).count
+
 
 
   end
