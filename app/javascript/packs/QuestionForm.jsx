@@ -121,28 +121,18 @@ class NewQuestion extends React.Component{
         // });
 
         return(<div className="d-flex justify-content-center">
-            <div className="col-4">
+            <div className="col-4 m-5">
                 <h1>New Question</h1>
-                    <div class="m-3">
-                        <label>Question</label>
-                        <textarea class="form-control" placeholder="Required example textarea" required></textarea>
-                    </div>
-                    <div class="input-group m-3">
-                        <label>Option 1 </label>
-                        <input type="text" class="form-control" required/>
-                    </div>
-                    <div class="input-group m-3">
-                        <label>Option 2 </label>
-                        <input type="text" class="form-control" required/>
-                    </div>
-                    <div class="input-group m-3">
-                        <label>Option 3 </label>
-                        <input type="text" class="form-control" required/>
-                    </div>
-                    <div class="input-group m-3">
-                        <label>Option 4 </label>
-                        <input type="text" class="form-control" required/>
-                    </div>
+                <h4>Question</h4>
+                <textarea class="form-control" placeholder="Question here" required></textarea>
+                <h4>Option 1</h4>
+                <input type="text" class="form-control" placeholder="Correct answer" required/>
+                <h4>Option 2</h4>
+                <input type="text" class="form-control" placeholder="False option" required/>
+                <h4>Option 3</h4>
+                <input type="text" class="form-control" placeholder="False option" required/>
+                <h4>Option 4</h4>
+                <input type="text" class="form-control" placeholder="False option" required/>
             </div>
         </div>)
     }
