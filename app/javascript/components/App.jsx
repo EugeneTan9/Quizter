@@ -4,8 +4,10 @@ import Form from './form'
 import Results from './results'
 import './App.css';
 
+    // qn number
     let qn = 0;
     let quiz_id = window.location.pathname.split("/")[2];
+    // array to store the answers of the user
     const scoreArr = [];
 
 class App extends React.Component{
@@ -34,6 +36,7 @@ class App extends React.Component{
         this.getBadge = this.getBadge.bind(this)
     }
 
+    // start the quiz and hide the start button
     getStarted(){
         this.state.hide_btn = "hide";
         console.log(this.state.hide_btn);
@@ -41,6 +44,8 @@ class App extends React.Component{
         this.getQn();
         this.getQuiz();
     }
+
+    // get the number of qn for the quiz
     getQuiz(){
         const url= '/quizzes/' + quiz_id + '/questions.json'
 
@@ -56,6 +61,7 @@ class App extends React.Component{
             })
     }
 
+    // getting each question of the quiz
     getQn(){
         const url= '/quizzes/' + quiz_id + '/questions.json'
 
@@ -77,6 +83,7 @@ class App extends React.Component{
             })
     }
 
+    // getting the choices of the quiz
     getOption(){
         const url= '/quizzes/' + quiz_id + '/questions.json'
 
@@ -113,6 +120,7 @@ class App extends React.Component{
       return array;
     }
 
+    // function to push the answers into scoreArr
     saveAnw(){
         // console.log(this.state.quiz_length)
         if(event.target.innerHTML === this.state.answer){
@@ -133,6 +141,7 @@ class App extends React.Component{
         }
     }
 
+    // calculating the total score of the quiz
     getResults(){
         console.log(scoreArr);
         console.log(scoreArr.length);
@@ -148,8 +157,25 @@ class App extends React.Component{
         this.state.score = correct;
         this.setState({score:this.state.score});
         this.getBadge();
+        this.saveResults();
     }
 
+    // inserting the results into the results table
+    saveResults(){
+        const url = '/results'
+        let data = {};
+        data.quiz_id = quiz_id;
+        data.quiz_result = this.state.score;
+
+        axios.post(url, data)
+        .then((response)=>{
+            console.log("WWWWOOOOOOHOOOOOOO")
+        }).catch((error)=>{
+            console.log(error);
+        })
+    }
+
+    // checking whether the user gotten any badge
     getBadge(){
         const url = '/badges.json'
 
@@ -157,22 +183,28 @@ class App extends React.Component{
             .then((response)=>{
                 const data = response.data
                 const filteredBadges = data.filter(x=>x.quiz_id == quiz_id);
-                console.log(filteredBadges[1].criteria)
+                console.log(filteredBadges.length);
                 for(var i=0; i < filteredBadges.length; i ++){
                     if (this.state.score >= filteredBadges[i].criteria) {
                         this.state.badge = filteredBadges[i];
-                        console.log(this.state.badge.img_url);
+                        console.log(this.state.badge.url);
                         this.setState({badge:this.state.badge});
-                    }else{
+                    }
+                    else{
                         console.log("Sorry no badges this time");
                         this.state.noBadge="Sorry, you didn't get any badge this time. Better luck next time";
                         this.setState({noBadge:this.state.noBadge});
                     }
                 }
+
             }).catch((error)=>{
                 console.log(error);
             })
     }
+
+
+
+
     render(){
         const choices = this.state.choices.map((choices, index)=>{
             return(<div key={index}>
