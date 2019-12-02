@@ -41,15 +41,18 @@
 <% @users.limit(5).each do |user| %>
 
         <div class="card mb-4" style="width: 12rem;">
-                    <% if @badgesCount[user.id].present? %>
-            <span class="float-right">
-            Badges:<%= @badgesCount[user.id]%></span>
+
+            <% if user.dp.present? %>
+            <img class="card-img-top img-fluid pt-2" src=<%= url_for(user.dp) %> style="width: 10rem;">
+            <% else %>
+            <img class="card-img-top img-fluid pt-2" src="https://www.gstatic.com/images/icons/material/product/1x/avatar_circle_blue_120dp.png" style="width: 10rem;">
             <% end %>
-            <img class="card-img-top img-fluid" src=<%# user.img_url %>>
             <div class="card-body">
                 <h4 class="card-title"><%= user.username %></h4>
                 <p class="card-text">
-                Badges Received:
+                <% if @badgesCount[user.id].present? %>
+                Badges:<%= @badgesCount[user.id]%>
+                <% end %>
 
                 </p>
 
