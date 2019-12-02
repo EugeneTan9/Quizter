@@ -3,31 +3,31 @@
     <h1>Take Quizzes, Earn Badges!</h1>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-8">
-   
-        <form class="form-inline md-form form-sm active-pink-2 mt-2" action="/quizzes">
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-            aria-label="Search" >
-            <i class="fas fa-search" aria-hidden="true"></i>
-        </form>
 
+<div class="row">
+    <div class="col-md-12">
+        <form  action="/quizzes" class="mb-2 mt-4" method=get>
+        <input  type="text" placeholder="Search" aria-label="Search" >
+        <button class="btn btn-outline-primary btn-sm mb-2">Search</button>
+        </form>
     </div>
 </div>
+
+<div class="row justify-content-center">
     <h3>Popular Quizzes</h3>
     <div class="card-deck mt-4">
 <% @quizzes.limit(5).each do |quiz| %>
 
         <div class="card col-2 mb-4" style="width: 12rem;">
             <% if @quizzesCount[quiz.id].present? %>
-            <span class="float-right">
+            <span class="position-absolute">
             Hit:<%= @quizzesCount[quiz.id]%></span>
             <% end %>
             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
             <div class="card-body">
-                <h4 class="card-title"><%= quiz.title %></h4>
+                <h5 class="card-title"><%= quiz.title %></h5>
                 <p class="card-text"><%= truncate quiz.description, length: 80 %></p>
-               <a href="/quizzes/<%= quiz.id %>" class="btn btn-primary">Take this quiz</a>
+               <a href="/quizzes/<%= quiz.id %>" class="btn btn-outline-primary btn-sm">Take this quiz</a>
                
 
               
