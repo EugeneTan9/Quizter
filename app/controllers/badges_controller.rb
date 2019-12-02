@@ -7,6 +7,17 @@ class BadgesController < ApplicationController
     @badges = Badge.all
   end
 
+  def created
+    # @badges = Badge.where(user_id: current_user)
+    # need endpoint that gives user_id for the badge
+    @user = current_user
+    @created = []
+    @user.quizzes.each do |quiz|
+      @created.push(quiz.badges)
+    end
+  end
+
+
   # GET /badges/1
   # GET /badges/1.json
   def show
