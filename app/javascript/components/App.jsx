@@ -19,7 +19,10 @@ class App extends React.Component{
             quiz_length:null,
             hide_btn:"button",
             card:"card",
-            results_card:"hide"
+            results_card:"hide",
+            score:null,
+            badge:[],
+            noBadge:""
         }
 
         this.getQn = this.getQn.bind(this);
@@ -27,6 +30,8 @@ class App extends React.Component{
         this.saveAnw = this.saveAnw.bind(this);
         this.getQuiz = this.getQuiz.bind(this);
         this.getStarted = this.getStarted.bind(this);
+        this.getResults = this.getResults.bind(this);
+        this.getBadge = this.getBadge.bind(this)
     }
 
     getStarted(){
@@ -128,8 +133,47 @@ class App extends React.Component{
         }
     }
 
+    getResults(){
+        console.log(scoreArr);
+        console.log(scoreArr.length);
+        let correct = 0;
+        for(var i=0; i<scoreArr.length;  i++){
+            if(scoreArr[i] === 1){
+                correct++;
+            }
+        }
+
+        correct = (correct / scoreArr.length) * 100;
+        console.log(correct);
+        this.state.score = correct;
+        this.setState({score:this.state.score});
+        this.getBadge();
+    }
+
+    getBadge(){
+        const url = '/badges.json'
+
+        axios.get(url)
+            .then((response)=>{
+                const data = response.data
+                const filteredBadges = data.filter(x=>x.quiz_id == quiz_id);
+                console.log(filteredBadges[1].criteria)
+                for(var i=0; i < filteredBadges.length; i ++){
+                    if (this.state.score >= filteredBadges[i].criteria) {
+                        this.state.badge = filteredBadges[i];
+                        console.log(this.state.badge.img_url);
+                        this.setState({badge:this.state.badge});
+                    }else{
+                        console.log("Sorry no badges this time");
+                        this.state.noBadge="Sorry, you didn't get any badge this time. Better luck next time";
+                        this.setState({noBadge:this.state.noBadge});
+                    }
+                }
+            }).catch((error)=>{
+                console.log(error);
+            })
+    }
     render(){
-       // console.log(this.state.choices);
         const choices = this.state.choices.map((choices, index)=>{
             return(<div key={index}>
                 <button onClick={()=>{this.saveAnw(event)}}>{choices.body}</button>
@@ -139,7 +183,7 @@ class App extends React.Component{
 
         return(
             <div>
-                <Results results_card={this.state.results_card}/>
+                <Results results_card={this.state.results_card} getResults={this.getResults} score={this.state.score} badge={this.state.badge} noBadge={this.state.noBadge}/>
                 <div className={this.state.card}>
                     <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
                     <h4 className="qn_num">{this.state.qn_num}</h4>
