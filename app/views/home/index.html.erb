@@ -14,24 +14,21 @@
 </div>
 
 <div class="row justify-content-center">
-    <h3>Popular Quizzes</h3>
+    <h4>Popular Quizzes</h4>
     <div class="card-deck mt-4">
 <% @quizzes.limit(5).each do |quiz| %>
 
-        <div class="card col-2 mb-4" style="width: 12rem;">
+        <div class="card col-2 mb-4 d-flex flex-column" style="width: 12rem;">
             <% if @quizzesCount[quiz.id].present? %>
             <span class="position-absolute">
             Hit:<%= @quizzesCount[quiz.id]%></span>
             <% end %>
             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
-            <div class="card-body">
-                <h5 class="card-title"><%= quiz.title %></h5>
-                <p class="card-text"><%= truncate quiz.description, length: 80 %></p>
-               <a href="/quizzes/<%= quiz.id %>" class="btn btn-outline-primary btn-sm">Take this quiz</a>
-               
-
-              
+            <div class="card-body mt-n3">
+                <h6 class="card-title"><%=  truncate quiz.title,length: 30 %></h5>
+                <p class="card-text"><%= truncate quiz.description, length: 60 %></p>          
             </div>
+            <div class="mt-auto p-2"><a href="/quizzes/<%= quiz.id %>" class="btn btn-outline-primary btn-sm">Take this quiz</a></div>
         </div>
 
 <% end %>
