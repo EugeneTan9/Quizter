@@ -18,7 +18,7 @@
     <div class="card-deck mt-4">
 <% @quizzes.limit(5).each do |quiz| %>
 
-        <div class="card mb-4" style="width: 12rem;">
+        <div class="card col-2 mb-4" style="width: 12rem;">
             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
             <div class="card-body">
                 <h4 class="card-title"><%= quiz.title %></h4>

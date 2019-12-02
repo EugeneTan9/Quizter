@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+
+   <h3>My Created Badges</h3>
+    <div class="card-deck mt-4">
+    <% puts @created %>
+<% current_user.quizzes.each do |quiz| %>
+  <% quiz.badges.each do |badge| %>
+        <% puts badge %>
+        <div class="card mb-4" style="width: 12rem;">
+        <%= image_tag url_for(badge.img_url), :style => "width: 10rem;" %>
+            <div class="card-body">
+                <h4 class="card-title"><%= badge.title %></h4>
+                Quiz ID: <%= badge.id %><br/>
+                Criteria: <%= badge.criteria %>%<br/>
+                <p class="card-text"><u>Created</u> <br/> <%= badge.created_at %></p>
+                <%= link_to 'Show', badge %><br/>
+                <%= link_to 'Edit', edit_badge_path(badge) %><br/>
+                <%= link_to 'Delete', badge, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+        </div>
+
+  <% end %>
+<% end %>
+  </div>
+
+<br>
