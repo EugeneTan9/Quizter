@@ -4,7 +4,14 @@ class QuizzesController < ApplicationController
   # GET /quizzes
   # GET /quizzes.json
   def index
+    thesearch = params[:search]
+    if thesearch != nil
+    thesearch = thesearch.downcase
+    @quizzes = Quiz.where(["lower(title) LIKE ?", "%#{thesearch}%"])
+    else 
     @quizzes = Quiz.all
+    end
+
   end
 
   def created
