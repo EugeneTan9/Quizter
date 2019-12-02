@@ -8,7 +8,7 @@ class QuizzesController < ApplicationController
   end
 
   def created
-    @quizzes = Quiz.all
+    @quizzes = Quiz.where(user_id: current_user)
   end
 
   # GET /quizzes/1
