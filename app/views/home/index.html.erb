@@ -19,11 +19,18 @@
 <% @quizzes.limit(5).each do |quiz| %>
 
         <div class="card col-2 mb-4" style="width: 12rem;">
+            <% if @quizzesCount[quiz.id].present? %>
+            <span class="float-right">
+            Completed:<%= @quizzesCount[quiz.id]%></span>
+            <% end %>
             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
             <div class="card-body">
                 <h4 class="card-title"><%= quiz.title %></h4>
                 <p class="card-text"><%= truncate quiz.description, length: 80 %></p>
                <a href="/quizzes/<%= quiz.id %>" class="btn btn-primary">Take this quiz</a>
+               
+
+              
             </div>
         </div>
 
@@ -32,9 +39,13 @@
 
     <h3>Badges Leaderboard</h3>
     <div class="card-deck mt-4">
-<% @quizzes.limit(5).each do |quiz| %>
+<% @badges.limit(5).each do |quiz| %>
 
         <div class="card mb-4" style="width: 12rem;">
+                    <% if @quizzesCount[quiz.id].present? %>
+            <span class="float-right">
+            Completed:<%= @quizzesCount[quiz.id]%></span>
+            <% end %>
             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
             <div class="card-body">
                 <h4 class="card-title"><%= quiz.title %></h4>
