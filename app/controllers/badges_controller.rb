@@ -10,11 +10,12 @@ class BadgesController < ApplicationController
   # GET /badges/1
   # GET /badges/1.json
   def show
+    @badge = url_for Badge.find(params[:id])
   end
 
   # GET /badges/new
   def new
-    @quiz_id = params[:quiz_id]  
+    @quiz_id = params[:quiz_id]
     @badge = Badge.new
   end
 

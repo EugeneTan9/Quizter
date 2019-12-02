@@ -1,5 +1,6 @@
 class ResultsController < ApplicationController
   before_action :set_result, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
 
   # GET /results
   # GET /results.json
@@ -24,8 +25,21 @@ class ResultsController < ApplicationController
   # POST /results
   # POST /results.json
   def create
-    @result = Result.new(result_params)
+    p "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
+    p params[:quiz_id]
+    p "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    p params[:quiz_result]
+    p current_user.id
+    p "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
 
+    @result = Result.new(result_params)
+    @result[:user_id] = current_user.id
+    p "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    p @result
+    p "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    @result.save
+    # @result = Result.new(result_params)
+    # @result.user_id = current_user.id
     respond_to do |format|
       if @result.save
         format.html { redirect_to @result, notice: 'Result was successfully created.' }
