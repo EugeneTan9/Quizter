@@ -38,12 +38,11 @@ class NewQuestion extends React.Component{
     render(){
         return(<div className="d-flex justify-content-center">
             <div className="col-4 m-5">
-                <h1>Question #{this.state.question_num}</h1>
+                <h1 className="text-center">Question #{this.state.question_num}</h1>
                 <h4>Question</h4>
                 <textarea
                     onChange={(e)=>{this.changeState(e,0)}}
                     className="form-control"
-                    placeholder="Question here"
                     value={this.state.form[0].body ? this.state.form[0].body : ""}
                     required
                 />
@@ -52,7 +51,6 @@ class NewQuestion extends React.Component{
                     onChange={(e)=>{this.changeState(e,1)}}
                     type="text"
                     className="form-control"
-                    placeholder="Correct answer"
                     value={this.state.form[1].body ? this.state.form[1].body : ""}
                     required
                 />
@@ -61,7 +59,6 @@ class NewQuestion extends React.Component{
                     onChange={(e)=>{this.changeState(e,2)}}
                     type="text"
                     className="form-control"
-                    placeholder="False option"
                     value={this.state.form[2].body ? this.state.form[2].body : ""}
                     required
                 />
@@ -70,7 +67,6 @@ class NewQuestion extends React.Component{
                     onChange={(e)=>{this.changeState(e,3)}}
                     type="text"
                     className="form-control"
-                    placeholder="False option"
                     value={this.state.form[3].body ? this.state.form[3].body : ""}
                     required
                 />
@@ -79,13 +75,12 @@ class NewQuestion extends React.Component{
                     onChange={(e)=>{this.changeState(e,4)}}
                     type="text"
                     className="form-control"
-                    placeholder="False option"
                     value={this.state.form[4].body ? this.state.form[4].body : ""}
                     required
                 />
                 <div className="d-flex justify-content-around my-3">
-                    <button onClick={()=>{this.submitQuestions()}} className="btn btn-primary btn-sm">Add Question</button>
-                    <a href={'/quizzes/'+window.location.pathname.split("/")[2]}><button className="btn btn-primary btn-sm">Review Quiz</button></a>
+                    <button onClick={()=>{this.submitQuestions()}} className="btn btn-outline-primary btn-sm">Save & add new</button>
+                    <a className="btn btn-outline-primary btn-sm" href={'/quizzes/'+window.location.pathname.split("/")[2]+'/badges/new'}>Move to step 3</a>
                 </div>
             </div>
         </div>)
