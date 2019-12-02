@@ -39,7 +39,7 @@
 					<li class="nav-item">
 
 					</li>
-					<% if user_signed_in?%>
+				
                  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        <i class="fas fa-poll-h"></i>   Quizzes
@@ -47,13 +47,14 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           						<%= link_to '<i class="fas fa-poll"></i> My Quizzes'.html_safe, quizzes_path,{:class => "dropdown-item"} %>
                       <div class="dropdown-divider"></div>
-          						<%= link_to '<i class="far fa-question-circle"></i> Create a Quiz'.html_safe, quizzes_path,{:class => "dropdown-item"} %>
+          						<%= link_to '<i class="far fa-question-circle"></i> Create a Quiz'.html_safe, new_quiz_path,{:class => "dropdown-item"} %>
+     					  
+          						<%= link_to '<i class="fas fa-pen"></i> My Created Quizzes'.html_safe, quizzes_created_url,{:class => "dropdown-item"} %>
       </li>
-				
 					<li class="nav-item">
 						<%= link_to '<i class="fas fa-certificate"></i> Badges'.html_safe, badges_path,{:class => "nav-link"} %>
 					</li>
-					<% end %>
+		
 				</ul>
 
 				<ul class="navbar-nav">

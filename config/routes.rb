@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # get 'home/index'
   root :to => 'home#index'
+  get 'quizzes/created', to: 'quizzes#created', as: 'quizzes_created'
   resources :options
   resources :results
   resources :quizzes do
