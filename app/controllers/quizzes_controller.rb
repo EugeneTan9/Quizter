@@ -7,6 +7,10 @@ class QuizzesController < ApplicationController
     @quizzes = Quiz.all
   end
 
+  def created
+    @quizzes = Quiz.all
+  end
+
   # GET /quizzes/1
   # GET /quizzes/1.json
   def show
