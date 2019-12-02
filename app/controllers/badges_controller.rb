@@ -5,16 +5,19 @@ class BadgesController < ApplicationController
   # GET /badges.json
   def index
     @badges = Badge.all
+
+    # @users = User.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
+    
   end
 
   def created
     # @badges = Badge.where(user_id: current_user)
     # need endpoint that gives user_id for the badge
-    @user = current_user
-    @created = []
-    @user.quizzes.each do |quiz|
-      @created.push(quiz.badges)
-    end
+    # @user = current_user
+    # @created = []
+    # @user.quizzes.each do |quiz|
+    #   @created.push(quiz.badges)
+    # end
   end
 
 
