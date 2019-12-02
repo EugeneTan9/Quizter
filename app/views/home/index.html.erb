@@ -21,7 +21,7 @@
         <div class="card col-2 mb-4" style="width: 12rem;">
             <% if @quizzesCount[quiz.id].present? %>
             <span class="float-right">
-            Completed:<%= @quizzesCount[quiz.id]%></span>
+            Hit:<%= @quizzesCount[quiz.id]%></span>
             <% end %>
             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
             <div class="card-body">
@@ -39,18 +39,22 @@
 
     <h3>Badges Leaderboard</h3>
     <div class="card-deck mt-4">
-<% @badges.limit(5).each do |quiz| %>
+<% @users.limit(5).each do |user| %>
 
         <div class="card mb-4" style="width: 12rem;">
-                    <% if @quizzesCount[quiz.id].present? %>
+                    <% if @badgesCount[user.id].present? %>
             <span class="float-right">
-            Completed:<%= @quizzesCount[quiz.id]%></span>
+            Badges:<%= @badgesCount[user.id]%></span>
             <% end %>
-            <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
+            <img class="card-img-top img-fluid" src=<%# user.img_url %>>
             <div class="card-body">
-                <h4 class="card-title"><%= quiz.title %></h4>
-                <p class="card-text"><%= truncate quiz.description, length: 80 %></p>
-               <a href="/quizzes/<%= quiz.id %>" class="btn btn-primary">Take this quiz</a>
+                <h4 class="card-title"><%= user.username %></h4>
+                <p class="card-text">
+                Badges Received:
+
+                </p>
+
+
             </div>
         </div>
 

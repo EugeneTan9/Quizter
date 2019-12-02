@@ -3,10 +3,10 @@
 
    <h3>My Created Badges</h3>
     <div class="card-deck mt-4">
-    <% puts @created %>
+
 <% current_user.quizzes.each do |quiz| %>
   <% quiz.badges.each do |badge| %>
-        <% puts badge %>
+       
         <div class="card mb-4" style="width: 12rem;">
         <%= image_tag url_for(badge.img_url), :style => "width: 10rem;" %>
             <div class="card-body">
