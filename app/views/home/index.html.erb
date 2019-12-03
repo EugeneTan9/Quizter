@@ -28,7 +28,7 @@
 
  
             <% if quiz.img_url.present? %>
-            <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
+            <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title%>>
             <% else %>
             <img class="card-img-top img-fluid" src="/test/badgeunderconstruction.png" alt=<%= quiz.title %>>
             <% end %>
@@ -57,8 +57,14 @@
                 <h4 class="card-title"><%= user.username %></h4>
                 <p class="card-text">
                 <% if @badgesCount[user.id].present? %>
-                Badges:<%= @badgesCount[user.id]%>
+                Badges: <%= @badgesCount[user.id]%>
                 <% end %>
+                <br/>
+    <% User.find(user.id).badges.each do |badge| %>
+           
+            <%= image_tag url_for(badge.img_url), :style => "width: 3rem;", :alt => badge.title, :title => badge.title, :class => "ml-n2 mr-n2" %>
+            
+    <%end%>
 
                 </p>
 
