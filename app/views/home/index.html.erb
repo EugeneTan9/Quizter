@@ -62,7 +62,7 @@
                 <br/>
     <% User.find(user.id).badges.each do |badge| %>
            
-            <%= image_tag url_for(badge.img_url), :style => "width: 3rem;", :alt => badge.title, :title => badge.title %>
+            <%= image_tag url_for(badge.img_url), :style => "width: 3rem;", :alt => badge.title, :title => badge.title, :class => "ml-n2 mr-n2" %>
             
     <%end%>
 
