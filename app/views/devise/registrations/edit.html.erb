@@ -37,7 +37,15 @@
   </div>
 
   <div>
-  	Current Image <img src=<%= url_for(current_user.dp) %>>
+
+            <% if current_user.dp.present? %>
+            <img src=<%= url_for(current_user.dp) %> style="width: 10rem;">
+            <% else %>
+            <img src="https://www.gstatic.com/images/icons/material/product/1x/avatar_circle_blue_120dp.png" style="width: 10rem;">
+            <% end %>
+
+
+
   </div>
 
   <div class="field">

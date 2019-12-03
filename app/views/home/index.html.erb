@@ -25,7 +25,13 @@
             <span class="position-absolute">
             Hit:<%= @quizzesCount[quiz.id]%></span>
             <% end %>
+
+ 
+            <% if quiz.img_url.present? %>
             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
+            <% else %>
+            <img class="card-img-top img-fluid" src="/test/badgeunderconstruction.png" alt=<%= quiz.title %>>
+            <% end %>
             <div class="card-body mt-n3">
                 <h6 class="card-title"><%=  truncate quiz.title,length: 30 %></h5>
                 <p class="card-text"><%= truncate quiz.description, length: 60 %></p>          
