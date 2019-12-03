@@ -5,7 +5,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-
     <%= javascript_pack_tag 'application' %>
 
 	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
@@ -36,7 +35,7 @@
 
 
 			<div class="collapse navbar-collapse " id="navbarNav">
-				<ul class="navbar-nav  mr-auto" >		
+				<ul class="navbar-nav  mr-auto" >
                  <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
        <i class="fas fa-poll-h"></i>   Quizzes
@@ -52,12 +51,12 @@
 					<% if user_signed_in?%>
 					<li class="nav-item">
 						<%= link_to '<i class="fas fa-certificate"></i> Earned Badges'.html_safe, badges_path,{:class => "nav-link"} %>
-					
+
 						<li class="nav-item">
 						<%= link_to '<i class="fas fa-pen"></i> My Created Badges'.html_safe, badges_created_url,{:class => "nav-link"} %>
 					</li><% end %>
 
-		
+
 				</ul>
 
 				<ul class="navbar-nav">

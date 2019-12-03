@@ -1,6 +1,12 @@
 class BadgesController < ApplicationController
   before_action :set_badge, only: [:show, :edit, :update, :destroy]
-
+  def quiz_badge
+    @badge = Quiz.find(params[:id]).badges[0]
+    respond_to do |format|
+      format.json { render :show, status: :created, location: @badge }
+      format.html
+    end
+  end
   # GET /badges
   # GET /badges.json
   def index
