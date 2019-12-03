@@ -160,7 +160,6 @@ class App extends React.Component{
         this.setState({score:this.state.score});
         await this.getBadge();
         await this.saveResults();
-        this.saveBadge();
     }
 
     // inserting the results into the results table
@@ -177,24 +176,6 @@ class App extends React.Component{
             console.log(error);
         })
     }
-
-    // async saveBadge(){
-    //     console.log("SAVE BADGE")
-    //     console.log(this.state);
-    //     const url = '/badges_users'
-
-    //     const data = {
-    //         badge_id : this.state.badge.id
-    //     }
-
-    //     return axios.post(url, data)
-    //         .then((response)=>{
-    //             console.log("ITS WORKING");
-    //         }).catch((error)=>{
-    //             console.log(error);
-    //         })
-    // }
-
 
     saveBadge(){
 
@@ -215,26 +196,24 @@ class App extends React.Component{
 
     // checking whether the user gotten any badge
     async getBadge(){
-        const url = '/badges.json'
-
+        const url = '/quizzes/' + quiz_id + '/thebadge.json'
+        console.log(url);
         return axios.get(url)
             .then((response)=>{
                 const data = response.data
-                const filteredBadges = data.filter(x=>x.quiz_id == quiz_id);
-                console.log(filteredBadges.length);
-                for(var i=0; i < filteredBadges.length; i ++){
-                    if (this.state.score >= filteredBadges[i].criteria) {
-                        this.state.badge = filteredBadges[i];
-                        console.log(this.state.badge.url);
-                        this.setState({badge:this.state.badge});
-                        this.saveBadge();
-                    }
-                    else{
-                        console.log("Sorry no badges this time");
-                        this.state.noBadge="Sorry, you didn't get any badge this time. Better luck next time";
-                        this.setState({noBadge:this.state.noBadge});
-                    }
+                console.log(data);
+                console.log(data.criteria);
+                if (this.state.score >= data.criteria) {
+                    this.state.badge = data
+                    this.setState({badge:this.state.badge});
+                    this.saveBadge();
                 }
+                else{
+                    console.log("Sorry no badges this time");
+                    this.state.noBadge="Sorry, you didn't get any badge this time. Better luck next time";
+                    this.setState({noBadge:this.state.noBadge});
+                }
+
 
             }).catch((error)=>{
                 console.log(error);
@@ -256,6 +235,7 @@ class App extends React.Component{
             <div>
                 <button onClick={this.saveBadge}>SAVE</button>
                 <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
+
                 <Results results_card={this.state.results_card} getResults={this.getResults} score={this.state.score} badge={this.state.badge} noBadge={this.state.noBadge}/>
 
                 <div className={this.state.card}>
