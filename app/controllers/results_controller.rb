@@ -25,12 +25,12 @@ class ResultsController < ApplicationController
   # POST /results
   # POST /results.json
   def create
-    p "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
-    p params[:quiz_id]
-    p "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-    p params[:quiz_result]
-    p current_user.id
-    p "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
+    # p "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
+    # p params[:quiz_id]
+    # p "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    # p params[:quiz_result]
+    # p current_user.id
+    # p "QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"
 
     @result = Result.new(result_params)
     @result[:user_id] = current_user.id

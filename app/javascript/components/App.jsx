@@ -175,6 +175,20 @@ class App extends React.Component{
         })
     }
 
+    saveBadge(){
+        console.log(this.state.badge.id);
+        const url = '/badges_users'
+        let data = {};
+        data.badge_id = this.state.badge.id;
+
+        axios.post(url, data)
+            .then((response)=>{
+                console.log("ITS WORKING");
+            }).catch((error)=>{
+                console.log(error);
+            })
+    }
+
     // checking whether the user gotten any badge
     getBadge(){
         const url = '/badges.json'
@@ -189,6 +203,7 @@ class App extends React.Component{
                         this.state.badge = filteredBadges[i];
                         console.log(this.state.badge.url);
                         this.setState({badge:this.state.badge});
+                        this.saveBadge();
                     }
                     else{
                         console.log("Sorry no badges this time");
@@ -208,7 +223,7 @@ class App extends React.Component{
     render(){
         const choices = this.state.choices.map((choices, index)=>{
             return(<div key={index}>
-                <button onClick={()=>{this.saveAnw(event)}}>{choices.body}</button>
+                <button className="choiceBtn"onClick={()=>{this.saveAnw(event)}}>{choices.body}</button>
                 </div>
                 )
         });

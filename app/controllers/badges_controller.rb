@@ -7,7 +7,7 @@ class BadgesController < ApplicationController
     @badges = Badge.all
 
     # @users = User.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
-    
+
   end
 
   def created
@@ -24,7 +24,7 @@ class BadgesController < ApplicationController
   # GET /badges/1
   # GET /badges/1.json
   def show
-    @badge = url_for Badge.find(params[:id])
+    @badge = url_for(Badge.find(params[:id]))
   end
 
   # GET /badges/new
