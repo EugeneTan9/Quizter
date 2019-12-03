@@ -5,9 +5,16 @@ class BadgesController < ApplicationController
   # GET /badges.json
   def index
 
-    @badges = Badge.all
+    # @badges = Badge.all
+    # @badgesUsers =BadgesUser.all
+    # @user = current_user
+    @user = current_user
+    @badges = @user.badges
+    # @badgesUsers = Badge.joins(:badges_users)
 
     # @users = User.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
+    # @userBadges = Quiz.joins(:results)
+    # @userBadges = Quiz.joins(:badges, :results).group(:badge_id)
 
   end
 

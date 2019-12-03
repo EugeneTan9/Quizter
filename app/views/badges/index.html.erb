@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 
-   <h3>My Badges</h3>
+   <h3>My Earned Badges</h3>
     <div class="card-deck mt-4">
 <% @badges.each do |badge| %>
 
@@ -10,6 +10,8 @@
             <div class="card-body">
                 <h4 class="card-title"><%= badge.title %></h4>
                 <p class="card-text"><u>Earned</u> <br/> <%= badge.created_at %></p>
+                <%= badge.id %>
+
             </div>
         </div>
    
