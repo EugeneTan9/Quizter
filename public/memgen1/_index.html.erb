@@ -1,17 +1,14 @@
-<h1>Step 3: Create a new badge</h1>
-
-<%= render 'form', badge: @badge %>
 
 <body onload="init()">
-<script defer src="/memgen1/fonts/fontawesome-all.js"></script>
-<link rel="stylesheet" href="/memgen1/css/style.css">
+<script defer src="./fonts/fontawesome-all.js"></script>
+<link rel="stylesheet" href="css/style.css">
 
+    <header>
+        <div class="container">
+            <h1>Meme Generator</h1>
+        </div>
 
-
-            <h3>Or Create Your Badge</h3>
-
-
-
+    </header>
     <main>
         <div>
             <section class="gallery grid-container">
@@ -36,13 +33,12 @@
                 <button onclick="newTxtBtnClicked()">
                     <i class="fas fa-plus"></i>  Add Line
                 </button>
-                <button>
                 <a id="dl" download="meme.png" href="#" onclick="dlCanvas(this)">
                     <span>
                         <i class="fas fa-cloud-download-alt"></i> Download
                     </span>
                 </a>
-                </button>
+
             </section>
 
             <section class="contact">
@@ -51,7 +47,12 @@
         </div>
     </main>
 
+    <footer>
+        <div class="container">
 
-    <script src="/memgen1/js/images.js"></script>
-    <script src="/memgen1/js/meme.js"></script>
+        </div>
+    </footer>
+    <script src="js/images.js"></script>
+    <script src="js/meme.js"></script>
 </body>
+
