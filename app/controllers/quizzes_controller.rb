@@ -8,7 +8,7 @@ class QuizzesController < ApplicationController
     if thesearch != nil
     thesearch = thesearch.downcase
     @quizzes = Quiz.where(["lower(title) LIKE ?", "%#{thesearch}%"])
-    else 
+    else
     @quizzes = Quiz.all
     end
 
@@ -30,6 +30,9 @@ class QuizzesController < ApplicationController
 
   # GET /quizzes/1/edit
   def edit
+    @quiz = Quiz.find(params[:id])
+    @questions = @quiz.questions
+    @badge = @quiz.badges
   end
 
   # POST /quizzes
