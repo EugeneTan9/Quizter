@@ -1,6 +1,7 @@
 .card{
 	text-align: center;
 	background-color: orange;
+	border-radius: 12px;
 	width: 1200px;
 	height: 230px;
 	left: 10.5%;
@@ -8,6 +9,7 @@
 
 .button{
 	padding: 50px;
+	margin-left: 45%;
 }
 .hide{
 	display: none;

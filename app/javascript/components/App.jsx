@@ -20,7 +20,7 @@ class App extends React.Component{
             answer:"",
             quiz_length:null,
             hide_btn:"button",
-            card:"card",
+            card:"hide",
             results_card:"hide",
             score:null,
             badge:[],
@@ -38,6 +38,8 @@ class App extends React.Component{
 
     // start the quiz and hide the start button
     getStarted(){
+        this.state.card = "card";
+        this.setState({card:this.state.card});
         this.state.hide_btn = "hide";
         console.log(this.state.hide_btn);
         this.setState({hide_btn:this.state.hide_btn});
@@ -230,9 +232,10 @@ class App extends React.Component{
 
         return(
             <div>
+                <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
                 <Results results_card={this.state.results_card} getResults={this.getResults} score={this.state.score} badge={this.state.badge} noBadge={this.state.noBadge}/>
+
                 <div className={this.state.card}>
-                    <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
                     <h4 className="qn_num">{this.state.qn_num}</h4>
                     <h2>{this.state.question}</h2>
                     {choices}
