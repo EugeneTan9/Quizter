@@ -20,7 +20,7 @@ class App extends React.Component{
             answer:"",
             quiz_length:null,
             hide_btn:"button",
-            card:"card",
+            card:"hide",
             results_card:"hide",
             score:null,
             badge:[],
@@ -38,6 +38,8 @@ class App extends React.Component{
 
     // start the quiz and hide the start button
     getStarted(){
+        this.state.card = "card";
+        this.setState({card:this.state.card});
         this.state.hide_btn = "hide";
         console.log(this.state.hide_btn);
         this.setState({hide_btn:this.state.hide_btn});
@@ -175,6 +177,20 @@ class App extends React.Component{
         })
     }
 
+    saveBadge(){
+        console.log(this.state.badge.id);
+        const url = '/badges_users'
+        let data = {};
+        data.badge_id = this.state.badge.id;
+
+        axios.post(url, data)
+            .then((response)=>{
+                console.log("ITS WORKING");
+            }).catch((error)=>{
+                console.log(error);
+            })
+    }
+
     // checking whether the user gotten any badge
     getBadge(){
         const url = '/badges.json'
@@ -189,6 +205,7 @@ class App extends React.Component{
                         this.state.badge = filteredBadges[i];
                         console.log(this.state.badge.url);
                         this.setState({badge:this.state.badge});
+                        this.saveBadge();
                     }
                     else{
                         console.log("Sorry no badges this time");
@@ -208,16 +225,17 @@ class App extends React.Component{
     render(){
         const choices = this.state.choices.map((choices, index)=>{
             return(<div key={index}>
-                <button onClick={()=>{this.saveAnw(event)}}>{choices.body}</button>
+                <button className="choiceBtn"onClick={()=>{this.saveAnw(event)}}>{choices.body}</button>
                 </div>
                 )
         });
 
         return(
             <div>
+                <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
                 <Results results_card={this.state.results_card} getResults={this.getResults} score={this.state.score} badge={this.state.badge} noBadge={this.state.noBadge}/>
+
                 <div className={this.state.card}>
-                    <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
                     <h4 className="qn_num">{this.state.qn_num}</h4>
                     <h2>{this.state.question}</h2>
                     {choices}

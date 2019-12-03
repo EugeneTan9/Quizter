@@ -1,15 +1,28 @@
 .card{
+	text-align: center;
 	background-color: orange;
-	width: 900px;
-	height: 200px;
+	border-radius: 12px;
+	width: 1200px;
+	height: 230px;
+	left: 10.5%;
 }
 
+.button{
+	padding: 50px;
+	margin-left: 45%;
+}
 .hide{
 	display: none;
 }
 
 .results_card{
+	text-align: center;
 	background-color: orange;
-	width: 900px;
-	height: 200px;
+	width: 1200px;
+	height: 230px;
+}
+
+.choiceBtn{
+	width: 500px;
+	margin-top: 5px;
 }

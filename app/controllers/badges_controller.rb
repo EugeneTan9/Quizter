@@ -32,7 +32,7 @@ class BadgesController < ApplicationController
   # GET /badges/1
   # GET /badges/1.json
   def show
-    @badge = url_for Badge.find(params[:id])
+    @badge = url_for(Badge.find(params[:id]))
   end
 
   # GET /badges/new
