@@ -144,7 +144,7 @@ class App extends React.Component{
     }
 
     // calculating the total score of the quiz
-    getResults(){
+    async getResults(){
         console.log(scoreArr);
         console.log(scoreArr.length);
         let correct = 0;
@@ -158,18 +158,19 @@ class App extends React.Component{
         console.log(correct);
         this.state.score = correct;
         this.setState({score:this.state.score});
-        this.getBadge();
-        this.saveResults();
+        await this.getBadge();
+        await this.saveResults();
+        this.saveBadge();
     }
 
     // inserting the results into the results table
-    saveResults(){
+    async saveResults(){
         const url = '/results'
         let data = {};
         data.quiz_id = quiz_id;
         data.quiz_result = this.state.score;
 
-        axios.post(url, data)
+        return axios.post(url, data)
         .then((response)=>{
             console.log("WWWWOOOOOOHOOOOOOO")
         }).catch((error)=>{
@@ -177,25 +178,46 @@ class App extends React.Component{
         })
     }
 
-    saveBadge(){
-        console.log(this.state.badge.id);
-        const url = '/badges_users'
-        let data = {};
-        data.badge_id = this.state.badge.id;
+    // async saveBadge(){
+    //     console.log("SAVE BADGE")
+    //     console.log(this.state);
+    //     const url = '/badges_users'
 
-        axios.post(url, data)
+    //     const data = {
+    //         badge_id : this.state.badge.id
+    //     }
+
+    //     return axios.post(url, data)
+    //         .then((response)=>{
+    //             console.log("ITS WORKING");
+    //         }).catch((error)=>{
+    //             console.log(error);
+    //         })
+    // }
+
+
+    saveBadge(){
+
+        const url = '/badges_users'
+
+        const data= {
+            badge_id : 2
+        }
+
+        return axios.post(url, data)
             .then((response)=>{
                 console.log("ITS WORKING");
             }).catch((error)=>{
                 console.log(error);
             })
+
     }
 
     // checking whether the user gotten any badge
-    getBadge(){
+    async getBadge(){
         const url = '/badges.json'
 
-        axios.get(url)
+        return axios.get(url)
             .then((response)=>{
                 const data = response.data
                 const filteredBadges = data.filter(x=>x.quiz_id == quiz_id);
@@ -232,6 +254,7 @@ class App extends React.Component{
 
         return(
             <div>
+                <button onClick={this.saveBadge}>SAVE</button>
                 <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
                 <Results results_card={this.state.results_card} getResults={this.getResults} score={this.state.score} badge={this.state.badge} noBadge={this.state.noBadge}/>
 

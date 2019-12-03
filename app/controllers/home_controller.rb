@@ -6,7 +6,6 @@ class HomeController < ApplicationController
 
   @quizzes = Quiz.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
 
-
   @quizzesCount = Result.group(:quiz_id).count
 
   @users = User.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
