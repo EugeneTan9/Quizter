@@ -3,24 +3,23 @@ class BadgesUsersController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def create
-    p "eeeeeeeeeeeeeeeeeee"
+    p "IN BADGES USERSSS"
+    p "///////////////"
     p params
-    p "eeeeeeeeeeeeeeeeeee"
+    p "///////////////"
     p current_user.id
-    p "eeeeeeeeeeeeeeeeeee"
+    p "///////////////"
+    p request.raw_post
 
-    @badgesUser = BadgesUser.new(badgesUser_params)
-    # @badgesUser[:badge_id] = params[:badge_id]
-    @badgesUser[:user_id] = current_user.id
+    @badgesUser = BadgesUser.new()
+    @badgesUsers[:badge_id] = params[:badge_id]
+    @badgesUser.user = current_user
     p "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
     p @badgesUsers
     p "HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"
     @badgesUser.save
   end
 
-  def badgesUser_params
-    params.require(:badgesUser).
-      permit(:badge_id, :user)
-  end
+
 
 end
