@@ -4,6 +4,7 @@ class BadgesController < ApplicationController
   # GET /badges
   # GET /badges.json
   def index
+
     @badges = Badge.all
 
     # @users = User.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
@@ -42,9 +43,10 @@ class BadgesController < ApplicationController
   # POST /badges.json
   def create
     @badge = Badge.new(badge_params)
+    @quiz = @badge.quiz
     respond_to do |format|
       if @badge.save
-        format.html { redirect_to @badge, notice: 'Badge was successfully created.' }
+        format.html { redirect_to edit_quiz_path(@quiz) }
         format.json { render :show, status: :created, location: @badge }
       else
         format.html { render :new }

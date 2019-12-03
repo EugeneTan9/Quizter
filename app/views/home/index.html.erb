@@ -3,35 +3,40 @@
     <h1>Take Quizzes, Earn Badges!</h1>
     </div>
 </div>
+
 <div class="row">
-    <div class="col-md-8">
-   
-        <form class="form-inline md-form form-sm active-pink-2 mt-2" action="/quizzes">
-            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-            aria-label="Search" >
-            <i class="fas fa-search" aria-hidden="true"></i>
+    <div class="col-md-12">
+        <form  action="/quizzes" class="mb-2 mt-4" method="get">
+        <input  type="text" placeholder="Search" name="search" aria-label="Search" >
+        <button class="btn btn-outline-primary btn-sm mb-2">Search</button>
         </form>
 
+        
     </div>
 </div>
-    <h3>Popular Quizzes</h3>
+
+<div class="row justify-content-center">
+    <h4>Popular Quizzes</h4>
     <div class="card-deck mt-4">
 <% @quizzes.limit(5).each do |quiz| %>
 
-        <div class="card col-2 mb-4" style="width: 12rem;">
+        <div class="card col-2 mb-4 d-flex flex-column" style="width: 12rem;">
             <% if @quizzesCount[quiz.id].present? %>
-            <span class="float-right">
+            <span class="position-absolute">
             Hit:<%= @quizzesCount[quiz.id]%></span>
             <% end %>
-            <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
-            <div class="card-body">
-                <h4 class="card-title"><%= quiz.title %></h4>
-                <p class="card-text"><%= truncate quiz.description, length: 80 %></p>
-               <a href="/quizzes/<%= quiz.id %>" class="btn btn-primary">Take this quiz</a>
-               
 
-              
+ 
+            <% if quiz.img_url.present? %>
+            <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %>>
+            <% else %>
+            <img class="card-img-top img-fluid" src="/test/badgeunderconstruction.png" alt=<%= quiz.title %>>
+            <% end %>
+            <div class="card-body mt-n3">
+                <h6 class="card-title"><%=  truncate quiz.title,length: 30 %></h5>
+                <p class="card-text"><%= truncate quiz.description, length: 60 %></p>          
             </div>
+            <div class="mt-auto p-2"><a href="/quizzes/<%= quiz.id %>" class="btn btn-outline-primary btn-sm">Take this quiz</a></div>
         </div>
 
 <% end %>
@@ -42,15 +47,18 @@
 <% @users.limit(5).each do |user| %>
 
         <div class="card mb-4" style="width: 12rem;">
-                    <% if @badgesCount[user.id].present? %>
-            <span class="float-right">
-            Badges:<%= @badgesCount[user.id]%></span>
+
+            <% if user.dp.present? %>
+            <img class="card-img-top img-fluid pt-2" src=<%= url_for(user.dp) %> style="width: 10rem;">
+            <% else %>
+            <img class="card-img-top img-fluid pt-2" src="https://www.gstatic.com/images/icons/material/product/1x/avatar_circle_blue_120dp.png" style="width: 10rem;">
             <% end %>
-            <img class="card-img-top img-fluid" src=<%# user.img_url %>>
             <div class="card-body">
                 <h4 class="card-title"><%= user.username %></h4>
                 <p class="card-text">
-                Badges Received:
+                <% if @badgesCount[user.id].present? %>
+                Badges:<%= @badgesCount[user.id]%>
+                <% end %>
 
                 </p>
 
