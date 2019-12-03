@@ -17,7 +17,14 @@
     <% @quizzes.each do |quiz| %>
 
   <div class="card">
+
+ 
+
+    <% if quiz.img_url.present? %>
     <img class="card-img-top" src=<%= quiz.img_url %> alt="<%= quiz.title %>" style="width: 15rem;">
+    <% else %>
+    <img class="card-img-top" src="/test/badgeunderconstruction.png" alt="<%= quiz.title %>" style="width: 15rem;">
+    <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= quiz.title %></h5>
       <p class="card-text"><%= quiz.description %></p>
