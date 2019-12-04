@@ -1,5 +1,6 @@
 class BadgesController < ApplicationController
   before_action :set_badge, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :only => [:index, :created, :new, :show, :edit, :update, :destroy]
   def quiz_badge
     @badge = Quiz.find(params[:id]).badges[0]
     respond_to do |format|

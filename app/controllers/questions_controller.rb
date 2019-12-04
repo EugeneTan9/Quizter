@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!, :only => [:index, :new, :show, :edit, :update, :destroy]
   # GET /questions
   # GET /quizzes/:quiz_id/questions.json
   def index
