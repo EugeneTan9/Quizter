@@ -1,6 +1,6 @@
 user1 = User.new({email: "ray@gmail.com", username: "ray", password: "password", isAdmin: false, isActive: true, isPublic: true})
 user1.save
-# user1.dp.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
+
 user2 = User.new({email: "eugene@gmail.com", username: "eugene", password: "password", isAdmin: false, isActive: true, isPublic: true})
 user2.save
 
@@ -10,9 +10,12 @@ user3.save
 user4 = User.new({email: "admin@gmail.com", username: "testadmin", password: "password", isAdmin: true, isActive: true, isPublic: true})
 user4.save
 
+user5 = User.new({email: "banana@gmail.com", username: "Banana", password: "password", isAdmin: false, isActive: true, isPublic: true})
+user5.save
+
   Quiz.create!([
-    {user_id: 1, title: "Star Wars Jedi Master Quiz", description: "Davids quiz on star wars. Get All correct and be a master jedi.", img_url: "/test/jedimaster.png"},
-    {user_id: 3, title: "Avengers Hero Quiz", description: "Kevins Quiz to prove he is a mighty Avenger", img_url: "/test/bananakiller.png"}
+    {user_id: 1, title: "Star Wars Jedi Quiz", description: "Davids quiz on star wars. Get All correct and be a jedi novice.", img_url: "/test/jedinovice.png"},
+    {user_id: 3, title: "Avengers Hero Quiz", description: "Kevins Quiz to prove he is a mighty Avenger", img_url: "/test/avengersbadge.png"}
   ])
 
 
@@ -25,7 +28,7 @@ user4.save
 
   badge1 = Badge.new({quiz_id: 1, title: "Jedi Badge", criteria: 50})
   badge1.save
-  badge1.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'jedinovice.png')), filename: 'badgeimg.png')
+  badge1.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'jedinovice.png')), filename: 'jedinovice.png')
   badge1.save
 
   badge2 = Badge.new({quiz_id: 2, title: "Avengers Badge", criteria: 75})
