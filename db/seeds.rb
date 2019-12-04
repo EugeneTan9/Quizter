@@ -23,20 +23,15 @@ user4.save
   #   {user_id: 3, quiz_id: 2, title: "Avengers Badge", criteria: 75}
   # ])
 
-  badge1 = Badge.new({quiz_id: 1, title: "Novice Jedi Badge", criteria: 50})
+  badge1 = Badge.new({quiz_id: 1, title: "Jedi Badge", criteria: 50})
   badge1.save
-  badge1.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
+  badge1.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'jedinovice.png')), filename: 'badgeimg.png')
   badge1.save
 
-  badge2 = Badge.new({quiz_id: 1, title: "Master Jedi Badge", criteria: 75})
+  badge2 = Badge.new({quiz_id: 2, title: "Avengers Badge", criteria: 75})
   badge2.save
-  badge2.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
+  badge2.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'avengersbadge.png')), filename: 'avengersbadge.png')
   badge2.save
-
-  badge3 = Badge.new({quiz_id: 2, title: "Avengers Badge", criteria: 75})
-  badge3.save
-  badge3.img_url.attach(io: File.open(Rails.root.join('app', 'assets', 'images', 'badgeimg.png')), filename: 'badgeimg.png')
-  badge3.save
 
   users = [user1,user2,user3,user4]
   users.each do |user|
@@ -122,5 +117,9 @@ user4.save
     {quiz_id: 1, question_num: 10, body: "The strike team destroys the shield generator.", body_type: "C"},
     {quiz_id: 1, question_num: 10, body: "Luke convinces his father to rejoin the Jedi.", body_type: "F"},
     {quiz_id: 1, question_num: 10, body: "Anakin Skywalker comes through and abdicates his position.", body_type: "F"},
-    {quiz_id: 1, question_num: 10, body: "Princess Leia and Han Solo steal a TIE fighter.", body_type: "F"}
+    {quiz_id: 1, question_num: 10, body: "Princess Leia and Han Solo steal a TIE fighter.", body_type: "F"},
+
+    {quiz_id: 2, question_num: 1, body: "Who is not an Avenger?", body_type: "Q"},
+    {quiz_id: 2, question_num: 1, body: "Deadpool", body_type: "C"},
+    {quiz_id: 2, question_num: 2, body: "Ironman", body_type: "F"},
     ])
