@@ -1,23 +1,36 @@
 <h1>Review Quiz</h1>
+
 <div class="container">
 	<div class="row">
-		<div class="col-5">
+		<div class="col-4">
 			<% @quiz.badges.each do |badge| %>
-				<%= image_tag url_for(badge.img_url), :class => "h-50 w-50 img-fluid" %><br>
+				<%= image_tag url_for(badge.img_url), :class => "w-50 img-fluid" %><br>
 				<%= badge.title %><br>
 			<% end %>
 			<%= render 'form', quiz: @quiz %>
 		</div>
-		<div class="col-6 text-left mb-5">
+		<div class="col-8 text-left mb-5">
 			<h4>Questions</h4>
-				<% @quiz.questions.where(body_type: "Q").each do |question| %>
-				<%= question.body %><br>
+				<% @question = @quiz.questions %>
+				<%# @question.where(body_type: "Q").each do |question| %>
+				<% @question.order(:question_num, :body_type).reverse.each do |question| %>
+				<div>
+					<% if question.body_type == "Q"%>
+						<br>
+						<span class="h5"><%= question.body %></span>
+						<br>
+					<% elsif question.body_type == "C" %>
+						<span class="text-success"><%= question.body %></span>
+					<% else %>
+						<%= question.body %>
+					<% end %>
+				</div>
 			<% end %>
 		</div>
-		<div class="col-6 offset-3">
-			<%= link_to 'Try it out!', @quiz, :class => "btn btn-block btn-outline-primary my-3" %>
-		</div>
 <%# link_to "Link to create a new Badge", new_quiz_badge_path(@quiz), :class => "my-class"%>
-<%# link_to "Link to create Questions", new_quiz_question_path(@quiz), :class => "my-class"%>
 	</div>
+		<div class="col-6 offset-3">
+			<%= link_to "Add another question", new_quiz_question_path(@quiz), :class => "btn btn-outline-primary m-3"%>
+			<%= link_to 'Try it out!', @quiz, :class => "btn btn-outline-primary m-3" %>
+		</div>
 </div>

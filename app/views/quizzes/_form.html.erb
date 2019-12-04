@@ -1,32 +1,30 @@
-<div class="container col-6 offset-3 text-left">
-	<%= form_with(model: quiz, local: true) do |form| %>
-	  <% if quiz.errors.any? %>
-	    <div id="error_explanation">
-	      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
+<%= form_with(model: quiz, local: true) do |form| %>
+  <% if quiz.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(quiz.errors.count, "error") %> prohibited this quiz from being saved:</h2>
 
-	      <ul>
-	        <% quiz.errors.full_messages.each do |message| %>
-	          <li><%= message %></li>
-	        <% end %>
-	      </ul>
-	    </div>
-	  <% end %>
+      <ul>
+        <% quiz.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-	  <div className="form-group">
-	    <%= form.label :title %>
-	    <%= form.text_field :title, :class => "form-control", :required => true %>
-	  </div>
+  <div className="form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, :class => "form-control", :required => true %>
+  </div>
 
-	  <div class="field">
-	    <%= form.label :description %>
-	    <%= form.text_area :description, :size => "50x5", :class => "form-control", :required => true %>
-	  </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, :size => "50x5", :class => "form-control", :required => true %>
+  </div>
 
-	  <br>
+  <br>
 
-	  <div class="actions">
-	    <%= form.submit :class => "btn btn-outline-primary"  %>
-	  </div>
+  <div class="actions">
+    <%= form.submit :class => "btn btn-outline-primary"  %>
+  </div>
 
-	<% end %>
-</div>
+<% end %>
