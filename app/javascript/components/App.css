@@ -1,12 +1,19 @@
+body{
+	background: rgb(92,92,103);
+	background: linear-gradient(90deg, rgba(92,92,103,1) 0%, rgba(133,133,139,1) 31%, rgba(195,195,187,1) 67%, rgba(223,232,230,1) 100%);
+}
+
 .card{
 	text-align: center;
-	background-color: orange;
 	border-radius: 12px;
 	width: 1200px;
 	height: 230px;
 	left: 10.5%;
 }
 
+.badge_img{
+	width: 250px;
+}
 .button{
 	padding: 50px;
 	margin-left: 45%;
@@ -21,11 +28,18 @@
 .results_card{
 	text-align: center;
 	background-color: orange;
+	border-radius: 12px;
 	width: 1200px;
 	height: 230px;
+	margin-left: 160px;
 }
 
 .choiceBtn{
 	width: 500px;
 	margin-top: 5px;
+}
+
+.progressBarDiv{
+	background-color: white;
+	width: 500px;
 }

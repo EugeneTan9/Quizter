@@ -3,12 +3,15 @@ import axios from 'axios';
 import Form from './form'
 import Results from './results'
 import './App.css';
+import ProgressMobileStepper from './progressbar'
+import Mapping from './mapping'
 
     // qn number
     let qn = 0;
     let quiz_id = window.location.pathname.split("/")[2];
     // array to store the answers of the user
     const scoreArr = [];
+    var timeleft = 10;
 
 class App extends React.Component{
     constructor(){
@@ -24,7 +27,10 @@ class App extends React.Component{
             results_card:"hide",
             score:null,
             badge:[],
-            noBadge:""
+            noBadge:"",
+            progressBarSteps:null,
+            currentProgressBarStep:1,
+            progressBarDiv:"progressBarDiv"
         }
 
         this.getQn = this.getQn.bind(this);
@@ -57,7 +63,7 @@ class App extends React.Component{
                 const length = data.filter(x=>x.quiz_id && x.body_type === "Q")
                 console.log(length.length);
                 this.state.quiz_length = length.length;
-                this.setState({quiz_length:this.state.quiz_length});
+                this.setState({quiz_length:this.state.quiz_length, progressBarSteps:++this.state.quiz_length});
             }).catch((error)=> {
                 console.log(error);
             })
@@ -80,6 +86,7 @@ class App extends React.Component{
                 this.state.qn_num = qn;
                 this.setState({qn_num:this.state.qn_num});
                 this.getOption()
+                this.setInterval()
             }).catch((error)=> {
                 console.log(error);
             })
@@ -96,6 +103,7 @@ class App extends React.Component{
                 this.shuffle(filteredOps)
                 this.state.choices = filteredOps;
                 this.setState({choices:this.state.choices});
+                // this.map();
             }).catch((error)=>{
                 console.log(error);
             })
@@ -136,12 +144,30 @@ class App extends React.Component{
             console.log("END");
             this.state.card = "hide";
             this.setState({card:this.state.card});
+            this.state.progressBarDiv = "hide";
+            this.setState({progressBarDiv:this.state.progressBarDiv});
             this.state.results_card = "results_card";
             this.setState({results_card:this.state.results_card})
         }else{
-        this.getQn()
+            // this.state.currentProgressBarStep ++;
+            this.setState({currentProgressBarStep:++this.state.currentProgressBarStep});
+            this.getQn()
         }
     }
+
+
+
+    setInterval(){
+        var downloadTimer = setInterval(function(){
+          document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+          timeleft -= 1;
+          if(timeleft <= 0){
+            clearInterval(downloadTimer);
+            document.getElementById("countdown").innerHTML = "Finished"
+          }
+        }, 1000);
+    }
+
 
     // calculating the total score of the quiz
     async getResults(){
@@ -178,20 +204,18 @@ class App extends React.Component{
     }
 
     saveBadge(){
-
         const url = '/badges_users'
-
-        const data= {
-            badge_id : 2
+        console.log(this.state.badge.id)
+        const data={
+            badge_id : this.state.badge.id
         }
 
         return axios.post(url, data)
             .then((response)=>{
-                console.log("ITS WORKING");
+                console.log("working");
             }).catch((error)=>{
                 console.log(error);
             })
-
     }
 
     // checking whether the user gotten any badge
@@ -224,24 +248,16 @@ class App extends React.Component{
 
 
     render(){
-        const choices = this.state.choices.map((choices, index)=>{
-            return(<div key={index}>
-                <button className="choiceBtn"onClick={()=>{this.saveAnw(event)}}>{choices.body}</button>
-                </div>
-                )
-        });
 
         return(
             <div>
-                <button onClick={this.saveBadge}>SAVE</button>
+                <div id="countdown"></div>
                 <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
 
                 <Results results_card={this.state.results_card} getResults={this.getResults} score={this.state.score} badge={this.state.badge} noBadge={this.state.noBadge}/>
-
-                <div className={this.state.card}>
-                    <h4 className="qn_num">{this.state.qn_num}</h4>
-                    <h2>{this.state.question}</h2>
-                    {choices}
+                <Mapping card={this.state.card} qn_num={this.state.qn_num} question={this.state.question} choices={this.state.choices} saveAnw={this.saveAnw}/>
+                <div className={this.state.progressBarDiv}>
+                    <ProgressMobileStepper steps={this.state.progressBarSteps} currentStep={this.state.currentProgressBarStep}/>
                 </div>
             </div>
             )
