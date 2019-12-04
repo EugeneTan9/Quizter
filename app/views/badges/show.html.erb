@@ -16,8 +16,7 @@
 </p>
 
 <p>
-  <strong>Img url:</strong>
-  <%= image_tag url_for(@badge.img_url) %>
+  <%= image_tag url_for(@badge.img_url), :style => "width: 15rem;"%>
 </p>
 
 <%= link_to 'Edit', edit_badge_path(@badge) %> |
