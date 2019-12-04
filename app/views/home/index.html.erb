@@ -31,8 +31,11 @@
             <% end %>
 
  
-            <% if quiz.img_url.present? %>
-             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title%>>
+
+
+    <% if quiz.badges.last.present? %>
+     <%= image_tag url_for(quiz.badges.last.img_url), :class => "card-img-top", :style => "width: 10rem", :alt => quiz.title %>
+
             <% else %>
                 <img class="card-img-top img-fluid" src="/test/badgeunderconstruction.png" alt=<%= quiz.title %>>
             <% end %>
