@@ -3,10 +3,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-4">
-			<% @quiz.badges.each do |badge| %>
-				<%= image_tag url_for(badge.img_url), :class => "w-50 img-fluid" %><br>
-				<%= badge.title %><br>
-			<% end %>
+			<% badge = @quiz.badges.last %>
+			<%= image_tag url_for(badge.img_url), :class => "w-50 img-fluid" %><br>
+			<%= badge.title %><br>
 			<%= render 'form', quiz: @quiz %>
 		</div>
 		<div class="col-8 text-left mb-5">
