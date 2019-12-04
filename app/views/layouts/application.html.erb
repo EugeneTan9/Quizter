@@ -44,17 +44,17 @@
           						<%= link_to '<i class="fas fa-poll"></i> Quizzes'.html_safe, quizzes_path,{:class => "dropdown-item"} %>
                       <div class="dropdown-divider"></div>
           						<%= link_to '<i class="far fa-question-circle"></i> Create a Quiz'.html_safe, new_quiz_path,{:class => "dropdown-item"} %>
-     					  	<% if user_signed_in?%>
+     					  	
           						<%= link_to '<i class="fas fa-pen"></i> My Created Quizzes'.html_safe, quizzes_created_url,{:class => "dropdown-item"} %>
-							<% end %>
+							
 					</li>
-					<% if user_signed_in?%>
+					
 					<li class="nav-item">
 						<%= link_to '<i class="fas fa-certificate"></i> Earned Badges'.html_safe, badges_path,{:class => "nav-link"} %>
 
 						<li class="nav-item">
 						<%= link_to '<i class="fas fa-pen"></i> My Created Badges'.html_safe, badges_created_url,{:class => "nav-link"} %>
-					</li><% end %>
+					</li>
 
 
 				</ul>
