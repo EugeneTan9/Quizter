@@ -6,20 +6,13 @@
         <form  action="/quizzes" class="mb-2 mt-4" method="get">
         <input  type="text" placeholder="Search" name="search" aria-label="Search" >
         <button class="btn btn-outline-primary btn-sm mb-2">Search</button>
-        </form>
-
-        
+        </form>   
     </div>
 </div>
+
 <div class="card-columns">
-
-
     <% @quizzes.each do |quiz| %>
-
   <div class="card">
-
- 
-
     <% if quiz.img_url.present? %>
     <img class="card-img-top" src=<%= quiz.img_url %> alt="<%= quiz.title %>" style="width: 15rem;">
     <% else %>
@@ -30,7 +23,8 @@
       <p class="card-text"><%= quiz.description %></p>
       <p class="card-text"><small class="text-muted">Requirements here...</small></p>
     </div>
-                <div class="mt-auto p-2"><a href="/quizzes/<%= quiz.id %>" class="btn btn-outline-primary btn-sm">Take this quiz</a></div>
+                <div class="mt-auto p-2"><a href="/quizzes/<%= quiz.id %>" class="btn btn-outline-primary btn-sm">Take this quiz</a
+                ></div>
     </div>
     <% end %>
 </div>
