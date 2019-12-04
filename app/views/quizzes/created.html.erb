@@ -8,7 +8,8 @@
         <% if  quiz.img_url.present? %>
             <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %> style="width: 15rem;">
                    <% else %>
-                   <%= image_tag 'badgeunderconstruction.png', :class=>'card-img-top img-fluid', :style => 'width: 15rem;' %>
+
+                   <%= image_tag 'badgeunderconstruction.png', :class=>"card-img-top img-fluid",  :style => "width: 15rem;"%>
             <% end %>
             <div class="card-body">
                 <h4 class="card-title"><%= quiz.title %></h4>
