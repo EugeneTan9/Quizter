@@ -11,7 +11,7 @@ import Mapping from './mapping'
     let quiz_id = window.location.pathname.split("/")[2];
     // array to store the answers of the user
     const scoreArr = [];
-    var timeleft = 10;
+
 
 class App extends React.Component{
     constructor(){
@@ -30,7 +30,7 @@ class App extends React.Component{
             noBadge:"",
             progressBarSteps:null,
             currentProgressBarStep:1,
-            progressBarDiv:"progressBarDiv"
+            progressBarDiv:"hide"
         }
 
         this.getQn = this.getQn.bind(this);
@@ -49,6 +49,8 @@ class App extends React.Component{
         this.state.hide_btn = "hide";
         console.log(this.state.hide_btn);
         this.setState({hide_btn:this.state.hide_btn});
+        this.state.progressBarDiv = "progressBarDiv";
+        this.setState({progressBarDiv:this.state.progressBarDiv});
         this.getQn();
         this.getQuiz();
     }
@@ -64,6 +66,7 @@ class App extends React.Component{
                 console.log(length.length);
                 this.state.quiz_length = length.length;
                 this.setState({quiz_length:this.state.quiz_length, progressBarSteps:++this.state.quiz_length});
+                this.setInterval()
             }).catch((error)=> {
                 console.log(error);
             })
@@ -86,7 +89,7 @@ class App extends React.Component{
                 this.state.qn_num = qn;
                 this.setState({qn_num:this.state.qn_num});
                 this.getOption()
-                this.setInterval()
+
             }).catch((error)=> {
                 console.log(error);
             })
@@ -148,6 +151,7 @@ class App extends React.Component{
             this.setState({progressBarDiv:this.state.progressBarDiv});
             this.state.results_card = "results_card";
             this.setState({results_card:this.state.results_card})
+            this.getResults();
         }else{
             // this.state.currentProgressBarStep ++;
             this.setState({currentProgressBarStep:++this.state.currentProgressBarStep});
@@ -158,8 +162,9 @@ class App extends React.Component{
 
 
     setInterval(){
+        var timeleft = 10 * this.state.quiz_length;
         var downloadTimer = setInterval(function(){
-          document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
+          document.getElementById("countdown").innerHTML = timeleft + " s";
           timeleft -= 1;
           if(timeleft <= 0){
             clearInterval(downloadTimer);
@@ -230,6 +235,8 @@ class App extends React.Component{
                 if (this.state.score >= data.criteria) {
                     this.state.badge = data
                     this.setState({badge:this.state.badge});
+                    this.state.noBadge = "Congratulation you won !"
+                    this.setState({noBadge:this.state.noBadge});
                     this.saveBadge();
                 }
                 else{
@@ -251,7 +258,6 @@ class App extends React.Component{
 
         return(
             <div>
-                <div id="countdown"></div>
                 <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
 
                 <Results results_card={this.state.results_card} getResults={this.getResults} score={this.state.score} badge={this.state.badge} noBadge={this.state.noBadge}/>

@@ -7,8 +7,9 @@ body{
 	text-align: center;
 	border-radius: 12px;
 	width: 1200px;
-	height: 230px;
+	height: 350px;
 	left: 10.5%;
+	background-color: white;
 }
 
 .badge_img{
@@ -40,6 +41,8 @@ body{
 }
 
 .progressBarDiv{
-	background-color: white;
+	position: absolute;
+	bottom: 80px;
 	width: 500px;
+	margin-left: 40%;
 }

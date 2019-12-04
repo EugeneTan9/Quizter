@@ -20,6 +20,7 @@ class Mapping extends React.Component{
 
         return(
             <div className={this.props.card}>
+                <div id="countdown"></div>
                 <h4 className="qn_num">{this.props.qn_num}</h4>
                 <h2>{this.props.question}</h2>
                 {choices}
