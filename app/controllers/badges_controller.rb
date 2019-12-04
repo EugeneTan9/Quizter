@@ -12,11 +12,23 @@ class BadgesController < ApplicationController
   # GET /badges.json
   def index
 
+    @user = current_user
+   
+
+    thesearch = params[:search]
+    if thesearch != nil
+    thesearch = thesearch.downcase
+    @badges = @user.badges.where(["lower(title) LIKE ?", "%#{thesearch}%"])
+    else
+      @badges = @user.badges
+    end
+
+
+
     # @badges = Badge.all
     # @badgesUsers =BadgesUser.all
     # @user = current_user
-    @user = current_user
-    @badges = @user.badges
+ 
     # @badgesUsers = Badge.joins(:badges_users)
 
     # @users = User.left_outer_joins(:results).group(:id).order('COUNT(results.id) DESC')
