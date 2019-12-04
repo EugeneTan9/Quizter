@@ -80,7 +80,7 @@ class NewQuestion extends React.Component{
                 />
                 <div className="d-flex justify-content-around my-3">
                     <button onClick={()=>{this.submitQuestions()}} className="btn btn-outline-primary btn-sm">Save & add new</button>
-                    <a className="btn btn-outline-primary btn-sm" href={'/quizzes/'+window.location.pathname.split("/")[2]+'/badges/new'}>Move to step 3</a>
+                    <a onClick={()=>{this.submitQuestions()}} className="btn btn-outline-primary btn-sm" href={'/quizzes/'+window.location.pathname.split("/")[2]+'/badges/new'}>Move to step 3</a>
                 </div>
             </div>
         </div>)
