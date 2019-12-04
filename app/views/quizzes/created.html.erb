@@ -5,8 +5,10 @@
 <% @quizzes.limit(5).each do |quiz| %>
 
         <div class="card mb-4" style="width: 12rem;">
-        <% if  quiz.img_url.present? %>
-            <img class="card-img-top img-fluid" src=<%= quiz.img_url %> alt=<%= quiz.title %> style="width: 15rem;">
+        <% if quiz.badges.last.present? %>
+
+            <%= image_tag url_for(quiz.badges.last.img_url), :class => "card-img-top img-fluid", :style => "width: 15rem", :alt => quiz.title %>
+            
                    <% else %>
 
                    <%= image_tag 'badgeunderconstruction.png', :class=>"card-img-top img-fluid",  :style => "width: 15rem;"%>
@@ -14,6 +16,10 @@
             <div class="card-body">
                 <h4 class="card-title"><%= quiz.title %></h4>
                 <p class="card-text"><%= truncate quiz.description, length: 80 %></p>
+                 <p class="card-text"><small class="text-muted">
+                     <% if quiz.badges.last.present? %>
+      Criteria: <%= quiz.badges.last.criteria %>
+      <% end %></p>
               
                <%= link_to 'View this quiz', quiz %><br/>
         <%= link_to 'Edit', edit_quiz_path(quiz) %><br/>

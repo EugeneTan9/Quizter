@@ -13,7 +13,8 @@ class QuizzesController < ApplicationController
     else
     @quizzes = Quiz.all
     end
-
+  
+    
   end
 
   def created
