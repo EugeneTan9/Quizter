@@ -1,99 +1,101 @@
-body{
-	background-color: #F9F9F3;
+body {
+    background-color: #F9F9F3;
 }
 
-.card{
-	margin-top: 50px;
-	text-align: center;
-	border-radius: 12px;
-	width: 1200px;
-	height: 400px;
-	left: 10.5%;
-	background-color: white;
+.card {
+    margin-top: 50px;
+    text-align: center;
+    border-radius: 12px;
+    width: 1200px;
+    height: 500px;
+    left: 10.5%;
+    background-color: white;
 }
 
-.badge_img{
-	width: 250px;
+.badge_img {
+    width: 250px;
 }
-.button{
-	display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #343A40;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
-  margin-left: 46.5%;
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #343A40;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+    margin-left: 46.5%;
 }
 
 .button:hover {
-	background-color: #2A2E33
+    background-color: #2A2E33
 }
 
 .button:active {
-  background-color: #2A2E33;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    background-color: #2A2E33;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
-.cardQn{
-	display: flex;
-	justify-content: space-between;
-	background-color: #343A40;
-	color: #CCCECF;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
-	height: 40px;
-}
-.hide{
-	display: none;
+.cardQn {
+    display: flex;
+    justify-content: space-between;
+    background-color: #343A40;
+    color: #CCCECF;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: 40px;
 }
 
-.results_card{
-	text-align: center;
-	background-color: #343A40;
-	color: #CCCECF;
-	border-radius: 12px;
-	width: 1200px;
-	height: 400px;
-	margin-left: 160px;
-	margin-top: 50px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-content: center;
+.hide {
+    display: none;
 }
 
-.choiceBtn{
-	width: 500px;
-	height: 50px;
-	font-size: 30px;
-	margin-top: 25px;
-	float: left;
-	margin-left: 60px;
-	background-color: #343A40;
-	color: #CCCECF;
-	border-radius: 10px;
+.results_card {
+    text-align: center;
+    background-color: #343A40;
+    color: #CCCECF;
+    border-radius: 12px;
+    width: 1200px;
+    height: 400px;
+    margin-left: 160px;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.choiceBtn {
+    width: 500px;
+    height: 150px;
+    font-size: 20px;
+    margin-top: 25px;
+    float: left;
+    margin-left: 60px;
+    background-color: #343A40;
+    color: #CCCECF;
+    border-radius: 10px;
 }
 
 .choiceBtn:hover {
-	background-color: #2A2E33
+    background-color: #2A2E33
 }
 
 .choiceBtn:active {
-  background-color: #2A2E33;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
+    background-color: #2A2E33;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
 }
 
-.progressBarDiv{
-	width: 500px;
-	position: absolute;
-	left: 42%;
-	bottom: 25%;
+.progressBarDiv {
+    width: 500px;
+    position: absolute;
+    left: 42%;
+    bottom: 8%;
 }
