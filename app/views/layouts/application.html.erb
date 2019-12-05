@@ -15,6 +15,26 @@
 <style>
 .card {display:inline-block;}
 
+.quiz{
+	background-color: #343A40;
+}
+
+.quiz h6{
+	color: #FBFCFC;
+}
+
+.quiz span{
+	color: #CCCECF;
+}
+
+.quiz p{
+	color: #CCCECF;
+}
+
+.takeQuizBtn{
+	border: white;
+}
+
 </style>
 
 </head>
@@ -44,11 +64,11 @@
           						<%= link_to '<i class="fas fa-poll"></i> Quizzes'.html_safe, quizzes_path,{:class => "dropdown-item"} %>
                       <div class="dropdown-divider"></div>
           						<%= link_to '<i class="far fa-question-circle"></i> Create a Quiz'.html_safe, new_quiz_path,{:class => "dropdown-item"} %>
-     					  	
+
           						<%= link_to '<i class="fas fa-pen"></i> My Created Quizzes'.html_safe, quizzes_created_url,{:class => "dropdown-item"} %>
-							
+
 					</li>
-					
+
 					<li class="nav-item">
 						<%= link_to '<i class="fas fa-certificate"></i> Earned Badges'.html_safe, badges_path,{:class => "nav-link"} %>
 

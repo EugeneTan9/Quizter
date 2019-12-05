@@ -11,7 +11,6 @@ import Mapping from './mapping'
     let quiz_id = window.location.pathname.split("/")[2];
     // array to store the answers of the user
     const scoreArr = [];
-    var timeleft = 10;
 
 class App extends React.Component{
     constructor(){
@@ -30,7 +29,7 @@ class App extends React.Component{
             noBadge:"",
             progressBarSteps:null,
             currentProgressBarStep:1,
-            progressBarDiv:"progressBarDiv"
+            progressBarDiv:"hide"
         }
 
         this.getQn = this.getQn.bind(this);
@@ -47,8 +46,10 @@ class App extends React.Component{
         this.state.card = "card";
         this.setState({card:this.state.card});
         this.state.hide_btn = "hide";
-        console.log(this.state.hide_btn);
+        // console.log(this.state.hide_btn);
         this.setState({hide_btn:this.state.hide_btn});
+        this.state.progressBarDiv = "progressBarDiv";
+        this.setState({progressBarDiv:this.state.progressBarDiv});
         this.getQn();
         this.getQuiz();
     }
@@ -148,6 +149,7 @@ class App extends React.Component{
             this.setState({progressBarDiv:this.state.progressBarDiv});
             this.state.results_card = "results_card";
             this.setState({results_card:this.state.results_card})
+            this.getResults();
         }else{
             // this.state.currentProgressBarStep ++;
             this.setState({currentProgressBarStep:++this.state.currentProgressBarStep});
@@ -156,17 +158,6 @@ class App extends React.Component{
     }
 
 
-
-    setInterval(){
-        var downloadTimer = setInterval(function(){
-          document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
-          timeleft -= 1;
-          if(timeleft <= 0){
-            clearInterval(downloadTimer);
-            document.getElementById("countdown").innerHTML = "Finished"
-          }
-        }, 1000);
-    }
 
 
     // calculating the total score of the quiz
@@ -180,7 +171,7 @@ class App extends React.Component{
             }
         }
 
-        correct = (correct / scoreArr.length) * 100;
+        correct = parseInt((correct / scoreArr.length) * 100);
         console.log(correct);
         this.state.score = correct;
         this.setState({score:this.state.score});
@@ -230,6 +221,8 @@ class App extends React.Component{
                 if (this.state.score >= data.criteria) {
                     this.state.badge = data
                     this.setState({badge:this.state.badge});
+                    this.state.noBadge="Congratulations! You did it!"
+                    this.setState({noBadge:this.state.noBadge});
                     this.saveBadge();
                 }
                 else{
@@ -251,7 +244,6 @@ class App extends React.Component{
 
         return(
             <div>
-                <div id="countdown"></div>
                 <Form getStarted ={this.getStarted} hide_btn={this.state.hide_btn}/>
 
                 <Results results_card={this.state.results_card} getResults={this.getResults} score={this.state.score} badge={this.state.badge} noBadge={this.state.noBadge}/>
