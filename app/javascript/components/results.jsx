@@ -13,6 +13,8 @@ class Results extends React.Component{
 
             <h2 className="score">{this.props.score}/100</h2>
             <h3>{this.props.noBadge}</h3>
+            
+            <a href="/badges" className="btn btn-light">See badges</a>
             </div>
             )
     }
