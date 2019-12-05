@@ -1,34 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-    <h3>My Created Quizzes</h3>
-    <div class="card-deck mt-4">
-<% @quizzes.limit(5).each do |quiz| %>
+<h3>My Created Quizzes</h3>
+<div class="card-deck mt-4">
+
+    <% @quizzes.limit(5).each do |quiz| %>
 
         <div class="card mb-4" style="width: 12rem;">
-        <% if quiz.badges.last.present? %>
+            <% if quiz.badges.last.present? %>
 
-            <%= image_tag url_for(quiz.badges.last.img_url), :class => "card-img-top img-fluid", :style => "width: 15rem", :alt => quiz.title %>
+                <%= image_tag url_for(quiz.badges.last.img_url), :class => "card-img-top img-fluid", :style => "width: 15rem", :alt => quiz.title %>
             
-                   <% else %>
+            <% else %>
 
-                   <%= image_tag 'badgeunderconstruction.png', :class=>"card-img-top img-fluid",  :style => "width: 15rem;"%>
+                <%= image_tag 'badgeunderconstruction.png', :class=>"card-img-top img-fluid",  :style => "width: 15rem;"%>
             <% end %>
             <div class="card-body">
                 <h4 class="card-title"><%= quiz.title %></h4>
                 <p class="card-text"><%= truncate quiz.description, length: 80 %></p>
-                 <p class="card-text"><small class="text-muted">
-                     <% if quiz.badges.last.present? %>
-      Criteria: <%= quiz.badges.last.criteria %>
-      <% end %></p>
-              
-               <%= link_to 'View this quiz', quiz %><br/>
-        <%= link_to 'Edit', edit_quiz_path(quiz) %><br/>
-        <%= link_to 'Delete', quiz, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <p class="card-text"><small class="text-muted">
+                    <% if quiz.badges.last.present? %>
+                        Criteria: <%= quiz.badges.last.criteria %>
+                    <% end %>
+                </small></p>              
+                <%= link_to 'View this quiz', quiz %><br/>
+                <%= link_to 'Edit', edit_quiz_path(quiz) %><br/>
+                <%= link_to 'Delete', quiz, method: :delete, data: { confirm: 'Are you sure?' } %>
             </div>
         </div>
 
-<% end %>
-  </div>
+    <% end %>
+</div>
 
 <br>
 
