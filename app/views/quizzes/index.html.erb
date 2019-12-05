@@ -13,15 +13,19 @@
 <div class="card-columns">
     <% @quizzes.each do |quiz| %>
   <div class="card">
-    <% if quiz.img_url.present? %>
-    <img class="card-img-top" src=<%= quiz.img_url %> alt="<%= quiz.title %>" style="width: 15rem;">
+    <% if quiz.badges.last.present? %>
+     <%= image_tag url_for(quiz.badges.last.img_url), :class => "card-img-top", :style => "width: 15rem", :alt => quiz.title %>
     <% else %>
     <img class="card-img-top" src="/test/badgeunderconstruction.png" alt="<%= quiz.title %>" style="width: 15rem;">
     <% end %>
     <div class="card-body">
       <h5 class="card-title"><%= quiz.title %></h5>
       <p class="card-text"><%= quiz.description %></p>
-      <p class="card-text"><small class="text-muted">Requirements here...</small></p>
+      <p class="card-text"><small class="text-muted">
+     <% if quiz.badges.last.present? %>
+      Criteria: <%= quiz.badges.last.criteria %>
+      <% end %>
+      </small></p>
     </div>
                 <div class="mt-auto p-2"><a href="/quizzes/<%= quiz.id %>" class="btn btn-outline-primary btn-sm">Take this quiz</a
                 ></div>
